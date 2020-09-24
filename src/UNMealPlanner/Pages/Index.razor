@@ -1,0 +1,20 @@
+﻿@page "/"
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+
+@if (IsWeekView)
+{
+    <WeekView/>
+}
+else
+{
+    <Calender/>
+}
+
+
+
+@code {
+
+    public bool IsWeekView = false;
+
+}
