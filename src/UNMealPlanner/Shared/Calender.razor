@@ -5,7 +5,7 @@
 <div class="calendar-container">
     <div class="calendar-header">
         <h1>
-            @getMonthName(2020, 09)
+            @getMonthName(DateTime.Now.Year, DateTime.Now.Month)
             <button>▾</button>
         </h1>
         <p>2020</p>
@@ -18,9 +18,9 @@
         <span class="day-name">Fri</span>
         <span class="day-name">Sat</span>
         <span class="day-name">Sun</span>
-        @foreach (var dd in GetDaysOfMonthForView(2020, 09))
+        @foreach (var dd in GetDaysOfMonthForView(DateTime.Now.Year, DateTime.Now.Month))
         {
-            <div class="day @(dd.IsDisabled ? "day--disabled": "")">@dd.Day</div>
+            <div class="@(dd.IsDisabled ? "day day--disabled": "day")">@dd.Day</div>
         }
 
         @*<section class="task task--warning">Projects</section>
