@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Blazored.LocalStorage;
+using Blazored.Modal;
+using UNMealPlanner.Services;
 
 namespace UNMealPlanner
 {
@@ -19,8 +21,12 @@ namespace UNMealPlanner
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            
+
+            builder.Services.AddBlazoredModal();
+
             builder.Services.AddBlazoredLocalStorage();
+
+            builder.Services.AddSingleton<IMealService, MealService>();
 
             await builder.Build().RunAsync();
         }

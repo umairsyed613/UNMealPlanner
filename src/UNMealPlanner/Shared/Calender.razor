@@ -1,12 +1,11 @@
-﻿@page "/calender"
-@using System.Globalization
+﻿@using System.Globalization
+@inject IModalService Modal
 
 
 <div class="calendar-container">
     <div class="calendar-header">
         <h1>
             @getMonthName(DateTime.Now.Year, DateTime.Now.Month)
-            <button>▾</button>
         </h1>
         <p>2020</p>
     </div>
@@ -20,31 +19,33 @@
         <span class="day-name">Sun</span>
         @foreach (var dd in GetDaysOfMonthForView(DateTime.Now.Year, DateTime.Now.Month))
         {
-            <div class="@(dd.IsDisabled ? "day day--disabled": "day")">@dd.Day</div>
-        }
+            <div @onclick="ShowMealDialog" class="@(dd.IsDisabled ? "day day--disabled": "day")">@dd.Day<span class="total-cal w-100">Total Cal: 12</span></div>}
 
         @*<section class="task task--warning">Projects</section>
-        <section class="task task--danger">Design Sprint</section>
-        <section class="task task--primary">
-            Product Checkup 1
-            <div class="task__detail">
-                <h2>Product Checkup 1</h2>
-                <p>15-17th November</p>
-            </div>
-        </section>
-        <section class="task task--info">Product Checkup 2</section>*@
+            <section class="task task--danger">Design Sprint</section>
+            <section class="task task--primary">
+                Product Checkup 1
+                <div class="task__detail">
+                    <h2>Product Checkup 1</h2>
+                    <p>15-17th November</p>
+                </div>
+            </section>
+            <section class="task task--info">Product Checkup 2</section>*@
     </div>
 </div>
 
-@code {
-
-    public string getMonthName(int year, int month)
+@code { public string getMonthName(int year, int month)
     {
         return new DateTime(year, month, 1)
             .ToString("MMMM", CultureInfo.InvariantCulture);
     }
 
-    private List<CalenderViewItem> GetDaysOfMonthForView(int year, int month)
+    private void ShowMealDialog()
+    {
+        Modal.Show<MealComponent>("My Meal");
+    }
+
+    private IEnumerable<CalenderViewItem> GetDaysOfMonthForView(int year, int month)
     {
         var daysInMonth = new List<CalenderViewItem>();
         var day = new DateTime(year, month, 1).DayOfWeek;
@@ -86,5 +87,4 @@
             Day = day;
             IsDisabled = isDisabled;
         }
-    }
-}
+    } }

@@ -10,6 +10,12 @@ app {
     flex-direction: column;
 }
 
+.centered-axis-x {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
 .page-footer {
     display: flex;
     flex: 0 0 auto;
