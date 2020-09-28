@@ -17,10 +17,6 @@
       "url": "_content\/Blazored.Modal\/blazored.modal.js"
     },
     {
-      "hash": "sha256-UYv1mknAFuwZsOOgHxOJOILTvxo83\/WEECRR0Vxiay4=",
-      "url": ".gitattributes"
-    },
-    {
       "hash": "sha256-0Ux2X4Us1VGioDiCxkrjYL6BhLtxN3OGqZLxpWMQUpk=",
       "url": "css\/app.css"
     },
@@ -321,5 +317,5 @@
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "eFFwQABa"
+  "version": "uOgZyz1E"
 };
