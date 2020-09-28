@@ -28,6 +28,16 @@ namespace UNMealPlanner.Services
             await _localStorageService.SetItemAsync<Meals>(key, meals);
         }
 
+        public async Task RemoveMeals(Meals meals)
+        {
+            var key = MakeKey(meals.DateTime);
+
+            if (await _localStorageService.ContainKeyAsync(key))
+            {
+                await _localStorageService.RemoveItemAsync(key);
+            }
+        }
+
         public async Task<Meals> GetMealsByDatetime(DateTime dateTime)
         {
             var key = MakeKey(dateTime);

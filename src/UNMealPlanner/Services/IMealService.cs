@@ -7,6 +7,8 @@ namespace UNMealPlanner.Services
     public interface IMealService
     {
         Task RegisterMeals(Meals meals);
+        
+        Task RemoveMeals(Meals meals);
 
         Task<Meals> GetMealsByDatetime(DateTime dateTime);
 

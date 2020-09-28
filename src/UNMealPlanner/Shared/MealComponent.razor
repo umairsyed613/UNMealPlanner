@@ -1,25 +1,13 @@
 ﻿@using UNMealPlanner.Types
 
 @inject IMealService MealService
-@*<div class="alert alert-primary" role="alert">
-        @Item.DayOfWeek
-    </div>
-    <div class="alert alert-secondary" role="alert">
-        A simple secondary alert—check it out!
-    </div>
-    <div class="alert alert-success" role="alert">
-        A simple success alert—check it out!
-    </div>
-    <div class="alert alert-danger" role="alert">
-        A simple danger alert—check it out!
-    </div>*@
 
 @if (MealsOfDay != null)
 {
     foreach (var meal in MealsOfDay.DayMeals)
     {
         <div class="d-flex flex-row flex-nowrap w-100 mb-4">
-            <MealViewComponent Meal="@meal" Item="@Item" />
+            <MealViewComponent Meal="@meal" Item="@Item" onRemove="MealRemove" />
         </div>
     }
     <hr />
@@ -31,7 +19,7 @@
     @if (MealsOfDay.DayMeals.Count < 3 && !ShowRegisterMeal)
     {
         <div class="d-flex flex-row flex-nowrap justify-content-end w-100 mt-2 mb-3">
-            <button class="btn" @onclick="ShowRegisterMealForm">Register Meal</button>
+            <button class="btn btn-primary" @onclick="ShowRegisterMealForm"><span class="oi oi-task"></span> Register Meal</button>
         </div>
     }
 }
@@ -39,8 +27,10 @@ else
 {
     if (!ShowRegisterMeal)
     {
-        <span>There are no registered meals</span> <br/>
-        <button class="btn" @onclick="ShowRegisterMealForm">Register Meal</button>
+        <div class="d-flex flex-column w-100">
+            <span>There are no registered meals</span> <br />
+            <button class="btn btn-primary" @onclick="ShowRegisterMealForm"><span class="oi oi-task"></span> Register Meal</button>
+        </div>
     }
 }
 
@@ -73,7 +63,7 @@ else
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-        <button type="submit" class="btn btn-primary">Register Meal</button>
+        <button type="submit" class="btn btn-primary"><span class="oi oi-task"></span> Register Meal</button>
     </EditForm>
 }
 
@@ -105,6 +95,18 @@ else
     private async Task ReadyStorage()
     {
         MealsOfDay = await MealService.GetMealsByDatetime(Item.Date);
+    }
+
+    private async Task MealRemove(Meal meal)
+    {
+        if (MealsOfDay != null && MealsOfDay.DayMeals.Contains(meal))
+        {
+            MealsOfDay.DayMeals.Remove(meal);
+            await MealService.RegisterMeals(MealsOfDay);
+
+            await ReadyStorage();
+            StateHasChanged();
+        }
     }
 
     private void ShowRegisterMealForm()

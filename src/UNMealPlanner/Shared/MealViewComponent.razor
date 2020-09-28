@@ -1,9 +1,13 @@
-﻿    @if (Meal != null)
-    {
-        <div class="w-70">@Meal.DishName</div>
-        <div class="w-20">@Meal.MealType</div>
-        <div class="w-10 text-right">@Meal.CaloriesCount</div>
-    }
+﻿@inject IMealService MealService
+
+@if (Meal != null)
+{
+    <div class="w-70">@Meal.DishName</div>
+    <div class="w-15">@Meal.MealType</div>
+    <div class="w-10 text-right">@Meal.CaloriesCount</div>
+    <div class="w-5 text-right"><span class="oi oi-trash" @onclick="@(() => onRemove.InvokeAsync(Meal))"></span></div>
+
+}
 
 @code {
     [Parameter]
@@ -11,4 +15,7 @@
 
     [Parameter]
     public CalenderViewItem Item { get; set; }
+
+    [Parameter] public EventCallback<Meal> onRemove { get; set; }
+
 }

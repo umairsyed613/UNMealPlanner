@@ -63,11 +63,15 @@ app {
     margin-bottom: 1.5rem !important;
 }
 
+.w-5 {
+    width: 5% !important;
+}
+
 .w-10 {
     width: 10% !important;
 }
 
-.w-20 {
+.w-15 {
     width: 20% !important;
 }
 
