@@ -43,16 +43,17 @@ app {
     z-index: 1000;
 }
 
-#blazor-error-ui .dismiss {
-    cursor: pointer;
-    position: absolute;
-    right: 0.75rem;
-    top: 0.5rem;
-}
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
 
 .blazored-modal {
     width: 80vw !important;
 }
+
 .blazored-modal-title {
     font-size: 1.3rem !important;
 }
@@ -79,11 +80,81 @@ app {
     width: 70% !important;
 }
 
-@media (max-width: 767.98px) {
+.cursor-pointer {
+    cursor: pointer;
 }
 
-@media (min-width: 768px) {
+.nav-link .oi {
+    padding-right: 5px !important;
+}
+
+
+@media (max-width: 575.98px) {
+    .txt-resp {
+        font-size: 3vw;
+    }
+
+    .blazored-modal {
+        padding: 0.7rem !important;
+        width: 90vw !important;
+    }
+
+    .blazored-modal-title {
+        font-size: 0.8rem !important;
+    }
+
+    .blazored-modal-close {
+        padding: 1rem !important;
+    }
+
+    .day {
+        height: 60px !important;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
     app {
         flex-direction: row;
     }
+
+    .txt-resp {
+        font-size: 0.9rem;
+    }
+
+    .blazored-modal {
+        padding: 1rem !important;
+    }
+
+    .blazored-modal-close {
+        padding: 0.3rem;
+    }
+
+    .day {
+        height: 80px !important;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    .blazored-modal-close {
+        padding: 0.5rem;
+    }
+
+    .blazored-modal {
+        width: 90vw !important;
+    }
+
+    .day {
+        height: 100px !important;
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+
+@media (min-width: 1200px) {
 }
