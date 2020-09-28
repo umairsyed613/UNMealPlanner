@@ -21,7 +21,7 @@
       "url": ".gitattributes"
     },
     {
-      "hash": "sha256-RF4+jxHuFlomjcfqDL9yUOxJTm4KtJtdWPLxhg9ujsE=",
+      "hash": "sha256-UDGR4\/V2ZLUPi0Wh2llvznIa+EALSSj8NLviusiDAwc=",
       "url": "css\/app.css"
     },
     {
@@ -85,7 +85,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-1ZtsdWOLr4cl5NCnttzNPXVrBhnsnn2qZEob2G1aIwU=",
+      "hash": "sha256-8WdebZFNBI26+YHk5o2HEV79bOnsIc0HxsbQmBe6\/Kk=",
       "url": "_framework\/_bin\/UNMealPlanner.dll"
     },
     {
@@ -317,9 +317,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-x8MmE3vhxNOhPLaVHaq9lwD7I9nowxY8vwIVMhA2czg=",
+      "hash": "sha256-uMNY8GROhxWMUIs8CVj5fT6n1HWnuuu3H2SW46L9vD8=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "2jtjBAsY"
+  "version": "Ie8Z5pmF"
 };
