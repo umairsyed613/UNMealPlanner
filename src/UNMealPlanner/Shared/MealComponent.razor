@@ -1,18 +1,142 @@
-﻿<h3>MealComponent</h3>
+﻿@using UNMealPlanner.Types
 
-<div class="alert alert-primary" role="alert">
-    A simple primary alert—check it out!
-</div>
-<div class="alert alert-secondary" role="alert">
-    A simple secondary alert—check it out!
-</div>
-<div class="alert alert-success" role="alert">
-    A simple success alert—check it out!
-</div>
-<div class="alert alert-danger" role="alert">
-    A simple danger alert—check it out!
-</div>
+@inject IMealService MealService
+@*<div class="alert alert-primary" role="alert">
+        @Item.DayOfWeek
+    </div>
+    <div class="alert alert-secondary" role="alert">
+        A simple secondary alert—check it out!
+    </div>
+    <div class="alert alert-success" role="alert">
+        A simple success alert—check it out!
+    </div>
+    <div class="alert alert-danger" role="alert">
+        A simple danger alert—check it out!
+    </div>*@
+
+@if (MealsOfDay != null)
+{
+    foreach (var meal in MealsOfDay.DayMeals)
+    {
+        <div class="d-flex flex-row flex-nowrap w-100 mb-4">
+            <MealViewComponent Meal="@meal" Item="@Item" />
+        </div>
+    }
+    <hr />
+    <div class="d-flex flex-row flex-nowrap justify-content-between w-100 mb-2">
+        <span>Total Calories : </span>
+        <span>@MealsOfDay.GetTotalCalories()</span>
+    </div>
+
+    @if (MealsOfDay.DayMeals.Count < 3 && !ShowRegisterMeal)
+    {
+        <div class="d-flex flex-row flex-nowrap justify-content-end w-100 mt-2 mb-3">
+            <button class="btn" @onclick="ShowRegisterMealForm">Register Meal</button>
+        </div>
+    }
+}
+else
+{
+    if (!ShowRegisterMeal)
+    {
+        <span>There are no registered meals</span> <br/>
+        <button class="btn" @onclick="ShowRegisterMealForm">Register Meal</button>
+    }
+}
+
+@if (ShowRegisterMeal)
+{
+    <h4>Register Meal</h4>
+    <hr />
+    <EditForm EditContext="@mealEditForm" OnValidSubmit="RegisterMeal">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Meal Type</label>
+            <InputSelect class="form-control" id="exampleFormControlSelect1" @bind-Value="Meal.MealType">
+                @foreach (var value in Enum.GetValues(typeof(MealType)))
+                    {
+                    <option>@value</option>
+                    }
+            </InputSelect>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Meal Name</label>
+            <InputText @bind-Value="Meal.DishName" class="form-control" id="exampleInputEmail1" aria-describedby="mealNameHelp" placeholder="Enter Meal Name" />
+            <small id="mealNameHelp" class="form-text text-muted">Please Enter the Meal Name.</small>
+        </div>
+        <div class="form-group">
+            <label for="cal">Meal Calories</label>
+            <InputNumber @bind-Value="Meal.CaloriesCount" class="form-control" id="cal" aria-describedby="calHelp" placeholder="Enter Calories Count" />
+            <small id="calHelp" class="form-text text-muted">Please Enter the Meal Calories Count.</small>
+        </div>
+
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <button type="submit" class="btn btn-primary">Register Meal</button>
+    </EditForm>
+}
 
 @code {
 
+    [Parameter]
+    public CalenderViewItem Item { get; set; }
+
+    private Meals MealsOfDay;
+
+    private Meal Meal { get; set; } = new Meal();
+    private EditContext mealEditForm { get; set; }
+
+    private bool ShowRegisterMeal = false;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        mealEditForm = new EditContext(Meal);
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+
+        await ReadyStorage();
+    }
+
+    private async Task ReadyStorage()
+    {
+        MealsOfDay = await MealService.GetMealsByDatetime(Item.Date);
+    }
+
+    private void ShowRegisterMealForm()
+    {
+        ShowRegisterMeal = true;
+    }
+
+    private async Task RegisterMeal()
+    {
+        var isValid = mealEditForm.Validate();
+
+        if (isValid)
+        {
+            if (MealsOfDay == null)
+            {
+                MealsOfDay = new Meals();
+            }
+            MealsOfDay.DayMeals.Add(
+                new Meal
+                {
+                    DishName = Meal.DishName,
+                    MealType = Meal.MealType,
+                    CaloriesCount = Meal.CaloriesCount
+                });
+            MealsOfDay.DateTime = new DateTime(Item.Year, Item.Month, Item.Day);
+
+            await MealService.RegisterMeals(MealsOfDay);
+
+            ShowRegisterMeal = false;
+            await ReadyStorage();
+            StateHasChanged();
+        }
+
+    }
 }

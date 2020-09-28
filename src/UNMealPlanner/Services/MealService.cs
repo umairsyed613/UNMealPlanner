@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+
 using Blazored.LocalStorage;
+
 using UNMealPlanner.Models;
 
 namespace UNMealPlanner.Services
@@ -22,7 +22,7 @@ namespace UNMealPlanner.Services
 
             if (await _localStorageService.ContainKeyAsync(key))
             {
-                return;
+                await _localStorageService.RemoveItemAsync(key);
             }
 
             await _localStorageService.SetItemAsync<Meals>(key, meals);
@@ -39,6 +39,8 @@ namespace UNMealPlanner.Services
 
             return null;
         }
+
+        public async Task ClearAllData() => await _localStorageService.ClearAsync();
 
         private static string MakeKey(DateTime dateTime) => $"{dateTime.Year};{dateTime.Month};{dateTime.Day}";
     }

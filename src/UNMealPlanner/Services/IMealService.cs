@@ -9,5 +9,7 @@ namespace UNMealPlanner.Services
         Task RegisterMeals(Meals meals);
 
         Task<Meals> GetMealsByDatetime(DateTime dateTime);
+
+        Task ClearAllData();
     }
 }

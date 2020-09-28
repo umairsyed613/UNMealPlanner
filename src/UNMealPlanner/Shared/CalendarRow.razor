@@ -2,7 +2,7 @@
     @for(int i = 1; i <= Data.Count; i++)
     {
         var j = i - 1;
-        <CalendarDay Day="@Data[j].Day" isDisabled="@Data[j].IsDisabled" Nr="i"/>
+        <CalendarDay Item="@Data[j]" Nr="i"/>
     }
 </div>
 

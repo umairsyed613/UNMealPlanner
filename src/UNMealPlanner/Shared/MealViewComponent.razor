@@ -1,0 +1,14 @@
+﻿    @if (Meal != null)
+    {
+        <div class="w-70">@Meal.DishName</div>
+        <div class="w-20">@Meal.MealType</div>
+        <div class="w-10 text-right">@Meal.CaloriesCount</div>
+    }
+
+@code {
+    [Parameter]
+    public Meal Meal { get; set; }
+
+    [Parameter]
+    public CalenderViewItem Item { get; set; }
+}

@@ -16,24 +16,32 @@ namespace UNMealPlanner.Helpers
 
         public static List<CalenderViewItem> GetDaysOfMonthForView(int year, int month)
         {
+            var monthFullName = GetMonthName(year, month);
+
             var calenderViewItems = new List<CalenderViewItem>();
             
             var day = new DateTime(year, month, 1).DayOfWeek;
-            
-            var daysInPreviousMonth = DateTime.DaysInMonth(year, month - 1);
+
+            var today = DateTime.Now.Day;
+
+            var prevMonth = month - 1;
+            var nextMonth = month + 1;
+
+            var daysInPreviousMonth = DateTime.DaysInMonth(year, prevMonth);
             var daysInSelectedMonth = DateTime.DaysInMonth(year, month);
 
             var temp = (int)day;
 
             while (temp != 1)
             {
-                calenderViewItems.Add(new CalenderViewItem(daysInPreviousMonth--, true));
+                var t = daysInPreviousMonth--;
+                calenderViewItems.Add(BuildItem(t, true, new DateTime(year, prevMonth, t).DayOfWeek, prevMonth, year, monthFullName));
                 temp--;
             }
 
             for (int i = 1; i <= daysInSelectedMonth; i++)
             {
-                calenderViewItems.Add(new CalenderViewItem(i, false));
+                calenderViewItems.Add(BuildItem(i, i < today, new DateTime(year, month, i).DayOfWeek, month, year, monthFullName));
             }
 
             var lastDay = new DateTime(year, month, daysInSelectedMonth).DayOfWeek;
@@ -43,11 +51,15 @@ namespace UNMealPlanner.Helpers
 
             while (temp >= 0)
             {
-                calenderViewItems.Add(new CalenderViewItem(j++, true));
+                var t = j++;
+                calenderViewItems.Add(BuildItem(t, true, new DateTime(year, nextMonth, t).DayOfWeek, nextMonth, year, monthFullName));
                 temp--;
             }
 
             return calenderViewItems;
         }
+
+        private static CalenderViewItem BuildItem(int day, bool isDisabled, DayOfWeek dayOfWeek, int month, int year, string monthName) =>
+            new CalenderViewItem(day, isDisabled, dayOfWeek, month, year, monthName);
     }
 }

@@ -1,12 +1,12 @@
 ﻿@inject IModalService Modal
 
-@if (isDisabled)
+@if (Item.IsDisabled)
 {
-    <div @onclick="ShowMealDialog" class="day day--disabled@(isNoBorderRight ? "" : " day-border-right")">@Day</div>
+    <div @onclick="ShowMealDialog" class="day day--disabled@(isNoBorderRight ? "" : " day-border-right")">@Item.Day</div>
 }
 else
 {
-    <div @onclick="ShowMealDialog" class="day @(isNoBorderRight ? "" : " day-border-right")">@Day<span class="total-cal w-100">Total Cal: @(Day + 100)</span></div>
+    <div @onclick="ShowMealDialog" class="day @(isNoBorderRight ? "" : " day-border-right")">@Item.Day</div>
 }
 @code {
 
@@ -22,13 +22,13 @@ else
     }
 
     [Parameter]
-    public int Day { get; set; }
-
-    [Parameter]
-    public bool isDisabled { get; set; }
+    public CalenderViewItem Item { get; set; }
 
     private void ShowMealDialog()
     {
-        Modal.Show<MealComponent>("My Meal");
+        var param = new ModalParameters();
+        param.Add(nameof(MealComponent.Item), Item);
+
+        Modal.Show<MealComponent>($"Meal Plan ({Item.DayOfWeek} {Item.Day} {Item.MonthName} {Item.Year})", param);
     }
 }
