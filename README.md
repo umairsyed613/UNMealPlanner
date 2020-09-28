@@ -1,3 +1,6 @@
+![Azure Static Web Apps CI/CD](https://github.com/umairsyed613/UNMealPlanner/workflows/Azure%20Static%20Web%20Apps%20CI/CD/badge.svg)
+![Deploy to GitHub Pages](https://github.com/umairsyed613/UNMealPlanner/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)
+
 ## UNMealPlanner
 MealPlanner is developed in Blazor Web Assembly, The app is using local storage for storing the meal plans. Its a PWA (Progressive Web Apps) can be used offline.
 
