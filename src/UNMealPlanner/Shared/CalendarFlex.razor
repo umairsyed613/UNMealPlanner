@@ -1,0 +1,38 @@
+﻿<div class="d-flex flex-column cal-container">
+    <div class="d-flex flex-row justify-content-center w-100">
+        <div class="calendar-header">
+            <h1>
+                @CalendarBuilder.GetMonthName(DateTime.Now.Year, DateTime.Now.Month)
+            </h1>
+            <p>2020</p>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row flex-nowrap dayname-border-top">
+        <span class="day-name day-border-right">Mon</span>
+        <span class="day-name day-border-right">Tue</span>
+        <span class="day-name day-border-right">Wed</span>
+        <span class="day-name day-border-right">Thu</span>
+        <span class="day-name day-border-right">Fri</span>
+        <span class="day-name day-border-right">Sat</span>
+        <span class="day-name">Sun</span>
+    </div>
+    
+    @foreach (var data in CalenderData.SplitList(7))
+    {
+        <CalendarRow Data="@data"/>
+    }
+
+    
+</div>
+
+@code
+{
+    List<CalenderViewItem> CalenderData = null;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        CalenderData = CalendarBuilder.GetDaysOfMonthForView(DateTime.Now.Year, DateTime.Now.Month);
+    }
+}

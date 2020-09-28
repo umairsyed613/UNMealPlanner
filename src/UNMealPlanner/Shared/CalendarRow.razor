@@ -1,0 +1,13 @@
+﻿<div class="d-flex flex-row flex-nowrap">
+    @for(int i = 1; i <= Data.Count; i++)
+    {
+        var j = i - 1;
+        <CalendarDay Day="@Data[j].Day" isDisabled="@Data[j].IsDisabled" Nr="i"/>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<CalenderViewItem> Data { get; set; }
+
+}
