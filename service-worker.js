@@ -40,12 +40,11 @@ async function onFetch(event) {
         // If you need some URLs to be server-rendered, edit the following check to exclude those URLs
         const shouldServeIndexHtml = event.request.mode === 'navigate';
 
-        //const request = shouldServeIndexHtml ? 'index.html' : event.request;
-        const request = event.request;
+        const request = shouldServeIndexHtml ? './index.html' : event.request;
         const cache = await caches.open(cacheName);
         cachedResponse = await cache.match(request);
     }
 
     return cachedResponse || fetch(event.request);
 }
-/* Manifest version: IeaKPz1P */
+/* Manifest version: 2jtjBAsY */

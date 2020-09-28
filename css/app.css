@@ -50,48 +50,36 @@ app {
     top: 0.5rem;
 }
 
+.blazored-modal {
+    width: 80vw !important;
+}
+.blazored-modal-title {
+    font-size: 1.3rem !important;
+}
+
+.blazored-modal-header {
+    border-bottom: 1px solid #d8d8d8;
+    padding: 0 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.w-10 {
+    width: 10% !important;
+}
+
+.w-20 {
+    width: 20% !important;
+}
+
+.w-70 {
+    width: 70% !important;
+}
+
 @media (max-width: 767.98px) {
-    .main .top-row:not(.auth) {
-        display: none;
-    }
-
-    .main .top-row.auth {
-        justify-content: space-between;
-    }
-
-    .main .top-row a, .main .top-row .btn-link {
-        margin-left: 0;
-    }
 }
 
 @media (min-width: 768px) {
     app {
         flex-direction: row;
-    }
-
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
-
-    .main .top-row {
-        position: sticky;
-        top: 0;
-    }
-
-    .main > div {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
-
-    .navbar-toggler {
-        display: none;
-    }
-
-    .sidebar .collapse {
-        /* Never collapse the sidebar for wide screens */
-        display: block;
     }
 }
