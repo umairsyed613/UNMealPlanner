@@ -17,8 +17,10 @@ namespace UNMealPlanner.Models
         public DayOfWeek DayOfWeek { get; set; }
 
         public bool IsDisabled { get; set; }
+        
+        public bool IsReadonly { get; set; }
 
-        public CalenderViewItem(int day, bool isDisabled, DayOfWeek dayOfWeek, int month, int year, string monthName)
+        public CalenderViewItem(int day, bool isDisabled, DayOfWeek dayOfWeek, int month, int year, string monthName, bool isReadonly)
         {
             Day = day;
             IsDisabled = isDisabled;
@@ -26,6 +28,7 @@ namespace UNMealPlanner.Models
             Month = month;
             Year = year;
             MonthName = monthName;
+            IsReadonly = isReadonly;
             Date = new DateTime(year, month, day);
         }
     }

@@ -35,13 +35,13 @@ namespace UNMealPlanner.Helpers
             while (temp != 1)
             {
                 var t = daysInPreviousMonth--;
-                calenderViewItems.Add(BuildItem(t, true, new DateTime(year, prevMonth, t).DayOfWeek, prevMonth, year, monthFullName));
+                calenderViewItems.Add(BuildItem(t, true, new DateTime(year, prevMonth, t).DayOfWeek, prevMonth, year, monthFullName, true));
                 temp--;
             }
 
             for (int i = 1; i <= daysInSelectedMonth; i++)
             {
-                calenderViewItems.Add(BuildItem(i, i < today, new DateTime(year, month, i).DayOfWeek, month, year, monthFullName));
+                calenderViewItems.Add(BuildItem(i, false, new DateTime(year, month, i).DayOfWeek, month, year, monthFullName, i < today));
             }
 
             var lastDay = new DateTime(year, month, daysInSelectedMonth).DayOfWeek;
@@ -52,14 +52,14 @@ namespace UNMealPlanner.Helpers
             while (temp >= 0)
             {
                 var t = j++;
-                calenderViewItems.Add(BuildItem(t, true, new DateTime(year, nextMonth, t).DayOfWeek, nextMonth, year, monthFullName));
+                calenderViewItems.Add(BuildItem(t, true, new DateTime(year, nextMonth, t).DayOfWeek, nextMonth, year, monthFullName, true));
                 temp--;
             }
 
             return calenderViewItems;
         }
 
-        private static CalenderViewItem BuildItem(int day, bool isDisabled, DayOfWeek dayOfWeek, int month, int year, string monthName) =>
-            new CalenderViewItem(day, isDisabled, dayOfWeek, month, year, monthName);
+        private static CalenderViewItem BuildItem(int day, bool isDisabled, DayOfWeek dayOfWeek, int month, int year, string monthName, bool isReadOnly) =>
+            new CalenderViewItem(day, isDisabled, dayOfWeek, month, year, monthName, isReadOnly);
     }
 }

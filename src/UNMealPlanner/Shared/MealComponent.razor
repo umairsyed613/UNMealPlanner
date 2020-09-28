@@ -11,12 +11,12 @@
         </div>
     }
     <hr />
-    <div class="d-flex flex-row flex-nowrap justify-content-between w-100 mb-2">
+    <div class="d-flex flex-row flex-nowrap justify-content-between w-100 mb-2 txt-resp">
         <span>Total Calories : </span>
         <span>@MealsOfDay.GetTotalCalories()</span>
     </div>
 
-    @if (MealsOfDay.DayMeals.Count < 3 && !ShowRegisterMeal)
+    @if (MealsOfDay.DayMeals.Count < 3 && !ShowRegisterMeal && !Item.IsReadonly)
     {
         <div class="d-flex flex-row flex-nowrap justify-content-end w-100 mt-2 mb-3">
             <button class="btn btn-primary" @onclick="ShowRegisterMealForm"><span class="oi oi-task"></span> Register Meal</button>
@@ -29,7 +29,10 @@ else
     {
         <div class="d-flex flex-column w-100">
             <span>There are no registered meals</span> <br />
-            <button class="btn btn-primary" @onclick="ShowRegisterMealForm"><span class="oi oi-task"></span> Register Meal</button>
+            @if (!Item.IsReadonly)
+            {
+                <button class="btn btn-primary" @onclick="ShowRegisterMealForm"><span class="oi oi-task"></span> Register Meal</button>
+            }
         </div>
     }
 }

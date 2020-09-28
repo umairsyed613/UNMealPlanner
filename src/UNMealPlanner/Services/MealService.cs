@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 using Blazored.LocalStorage;
@@ -24,6 +25,8 @@ namespace UNMealPlanner.Services
             {
                 await _localStorageService.RemoveItemAsync(key);
             }
+
+            meals.DayMeals = meals.DayMeals.OrderBy(o => (int)o.MealType).ToList();
 
             await _localStorageService.SetItemAsync<Meals>(key, meals);
         }
