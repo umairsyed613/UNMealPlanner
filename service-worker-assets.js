@@ -81,7 +81,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-LuKwG3XrelNV64PYtk3HASUi\/zUiSPaNA7YY1SOMgMY=",
+      "hash": "sha256-de\/lSJxXdyeYlvpRKwOXJ04gX+YSAjPJYXWfCHebybI=",
       "url": "_framework\/_bin\/UNMealPlanner.dll"
     },
     {
@@ -313,9 +313,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-WnVM+7685j+nsZaHyVFfavYwwCWczhBI8JZZjRNsPRM=",
+      "hash": "sha256-WUsC8UZA6rdBQksHCHKA5qef6e9VqYXYrmaIoMnmCCo=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "uOgZyz1E"
+  "version": "TojxNAC5"
 };
