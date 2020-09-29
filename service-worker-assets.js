@@ -17,6 +17,14 @@
       "url": "_content\/Blazored.Modal\/blazored.modal.js"
     },
     {
+      "hash": "sha256-VNpy\/+e3qVKbGT\/w3nYsFsKWFr48WCtO2UBADm0qje0=",
+      "url": ".gitattributes"
+    },
+    {
+      "hash": "sha256-8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=",
+      "url": ".nojekyll"
+    },
+    {
       "hash": "sha256-0Ux2X4Us1VGioDiCxkrjYL6BhLtxN3OGqZLxpWMQUpk=",
       "url": "css\/app.css"
     },
@@ -337,5 +345,5 @@
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "6wN79IRL"
+  "version": "2mc4s8Bz"
 };
