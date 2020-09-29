@@ -50,6 +50,12 @@
         border-radius: 10px;
     }
 
+.today {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .day-border-left {
     border-left: 1px solid rgba(166, 168, 179, 0.12);
 }

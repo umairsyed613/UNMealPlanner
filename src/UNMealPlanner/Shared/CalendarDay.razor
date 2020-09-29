@@ -6,7 +6,7 @@
 }
 else
 {
-    <div @onclick="ShowMealDialog" class="day @(isNoBorderRight ? "" : " day-border-right")">@Item.Day</div>
+    <div @onclick="ShowMealDialog" class="day@(isNoBorderRight ? "" : " day-border-right") @(Item.IsCurrentDay ? "today" : "")">@Item.Day</div>
 }
 @code {
 

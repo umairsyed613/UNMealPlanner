@@ -20,6 +20,8 @@ namespace UNMealPlanner.Models
         
         public bool IsReadonly { get; set; }
 
+        public bool IsCurrentDay { get; set; }
+
         public CalenderViewItem(int day, bool isDisabled, DayOfWeek dayOfWeek, int month, int year, string monthName, bool isReadonly)
         {
             Day = day;
@@ -30,6 +32,7 @@ namespace UNMealPlanner.Models
             MonthName = monthName;
             IsReadonly = isReadonly;
             Date = new DateTime(year, month, day);
+            IsCurrentDay = DateTime.Now.Day == day;
         }
     }
 }
