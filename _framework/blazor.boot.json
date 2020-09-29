@@ -6,7 +6,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "UNMealPlanner.dll": "sha256-M75KWbT\/oJRC5Hcdw44YgOQH\/ZtSn1XcgfxbqoRUgPY=",
+      "UNMealPlanner.dll": "sha256-p7MzXntLab\/w0FI8P3wnWVw48Poq0fQCY\/DSuegFxv8=",
       "Microsoft.Extensions.DependencyInjection.Abstractions.dll": "sha256-Bs1Wrmh4ex9dTEIT0yCRF52N\/wOmsBDt457BHr0\/ssM=",
       "netstandard.dll": "sha256-\/zcPVM75OAY+joGVM8yIC1gO1SFYWP1CFERgQ8PJkfA=",
       "System.Xml.Linq.dll": "sha256-IPbQMdJxZXdk8HTlaPyXdQ6Zb82iZLphnM74yO4EURQ=",

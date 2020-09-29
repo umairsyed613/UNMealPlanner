@@ -21,7 +21,15 @@
       "url": "css\/app.css"
     },
     {
-      "hash": "sha256-i1GJDU77MNUpPZq5zxGIPBuFe\/ByBc0Pkm0JB0Ft\/Nc=",
+      "hash": "sha256-Ww++W3rXBfapN8SZitAvc9jw2Xb+Ixt0rvDsmWmQyTo=",
+      "url": "css\/bootstrap.min.css"
+    },
+    {
+      "hash": "sha256-2c79EmAJsUiXtTXODh7+DeQ7\/AIvcdsu+yDftxtNiGY=",
+      "url": "css\/bootstrap.min.css.map"
+    },
+    {
+      "hash": "sha256-lvKyHpTHnXU\/70X8Lxdotl2opH+mSFYFzZp2iA\/Wsv4=",
       "url": "css\/Calender.css"
     },
     {
@@ -69,19 +77,31 @@
       "url": "favicon.ico"
     },
     {
-      "hash": "sha256-IpHFcQvs03lh6W54zoeJRG1jW+VnGmwymzxLoXtKX7Y=",
+      "hash": "sha256-qpEGydg0ub0tf9KOv0KSW\/800rUAOj1OfWCXi8tK9Ow=",
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-kQIOawAZ6SMDWfgT03WuJsJrd3+a\/QFdYzGdJfUJrDA=",
+      "hash": "sha256-16MTyVOY7JkR5j1qWYOqMcZaIB4rmwtT2v6ilK9udkg=",
       "url": "index.html"
+    },
+    {
+      "hash": "sha256-ecWZ3XYM7AwWIaGvSdmipJ2l1F4bN9RXW6zgpeAiZYI=",
+      "url": "js\/bootstrap.min.js"
+    },
+    {
+      "hash": "sha256-F6WuQKtSr3O5GZahuRFyFTaDKd50HlukfK16LSZrt6A=",
+      "url": "js\/bootstrap.min.js.map"
+    },
+    {
+      "hash": "sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=",
+      "url": "js\/jquery-3.5.1.slim.min.js"
     },
     {
       "hash": "sha256-tiYDjJBhJniIxqi7Zz6m1GV9yYPd7kgG4qGW7mm0Kek=",
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-M75KWbT\/oJRC5Hcdw44YgOQH\/ZtSn1XcgfxbqoRUgPY=",
+      "hash": "sha256-p7MzXntLab\/w0FI8P3wnWVw48Poq0fQCY\/DSuegFxv8=",
       "url": "_framework\/_bin\/UNMealPlanner.dll"
     },
     {
@@ -313,9 +333,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-5sgo0vGw+EoChlgYfhzZhwtrNhivANrCyTt\/gTpe174=",
+      "hash": "sha256-RuV6Sh12Ign7sm09C0m5Cy\/8Lot1POwj36y6Qn5rG7o=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "SJt83oeG"
+  "version": "6wN79IRL"
 };
