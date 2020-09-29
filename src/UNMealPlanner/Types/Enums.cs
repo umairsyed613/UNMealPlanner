@@ -2,8 +2,12 @@
 {
     public enum MealType
     {
-        BreakFast,
+        Breakfast,
+        Brunch,
+        Elevenses,
         Lunch,
+        Tea,
+        Supper,
         Dinner
     }
 }

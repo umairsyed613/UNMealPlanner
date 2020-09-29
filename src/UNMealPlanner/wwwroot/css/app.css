@@ -1,6 +1,6 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-
-html, body {
+html,
+body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -22,7 +22,7 @@ app {
     background: #fff;
     color: #4d4d4d;
     padding: 9px 12px 9px 18px;
-    box-shadow: 0 0 5px 0 rgba(0,0,0,0.21);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.21);
     margin-top: 30px;
     font-size: 12px;
 }
@@ -43,12 +43,12 @@ app {
     z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss {
-        cursor: pointer;
-        position: absolute;
-        right: 0.75rem;
-        top: 0.5rem;
-    }
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
 
 .blazored-modal {
     width: 80vw !important;
@@ -84,77 +84,83 @@ app {
     cursor: pointer;
 }
 
-.nav-link .oi {
-    padding-right: 5px !important;
+.nav-item {
+    line-height: 23px;
 }
 
+.nav-link .bi {
+    margin-right: 5px !important;
+    vertical-align: top;
+}
+
+.mealsinfotitle {
+    color: #b31132;
+}
+
+
+/* .list-group-item {
+    padding: 0px !important;
+    padding-bottom: .75rem !important;
+    padding-top: 0.75rem !important;
+} */
+
+.list-group-item-action:focus,
+.list-group-item-action:hover {
+    z-index: 1;
+    color: #ffffff !important;
+    text-decoration: none;
+    background-color: #b31132;
+}
 
 @media (max-width: 575.98px) {
     .txt-resp {
         font-size: 3vw;
     }
-
     .blazored-modal {
         padding: 0.7rem !important;
         width: 90vw !important;
     }
-
     .blazored-modal-title {
         font-size: 0.8rem !important;
     }
-
     .blazored-modal-close {
         padding: 1rem !important;
     }
-
     .day {
         height: 60px !important;
     }
 }
 
-
 @media (min-width: 576px) and (max-width: 767.98px) {
     app {
         flex-direction: row;
     }
-
     .txt-resp {
         font-size: 0.9rem;
     }
-
     .blazored-modal {
         padding: 1rem !important;
     }
-
     .blazored-modal-close {
         padding: 0.3rem;
     }
-
     .day {
         height: 80px !important;
     }
 }
 
-
 @media (min-width: 768px) and (max-width: 991.98px) {
-
     .blazored-modal-close {
         padding: 0.5rem;
     }
-
     .blazored-modal {
         width: 90vw !important;
     }
-
     .day {
         height: 100px !important;
     }
 }
 
+@media (min-width: 992px) and (max-width: 1199.98px) {}
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
-}
-
-
-@media (min-width: 1200px) {
-}
+@media (min-width: 1200px) {}
