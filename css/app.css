@@ -112,6 +112,11 @@ app {
     background-color: #b31132;
 }
 
+.groceryItemAdd {
+
+}
+
+
 @media (max-width: 575.98px) {
     .txt-resp {
         font-size: 3vw;
