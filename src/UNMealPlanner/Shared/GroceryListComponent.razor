@@ -1,0 +1,73 @@
+
+<EditForm EditContext="@editContext" OnValidSubmit="RegisterGroceryList">
+    <div class="form-group">
+        <label for="GroceryListName">List Name</label>
+        <InputText @bind-Value="GroceryList.Name" class="form-control" id="GroceryListName" aria-describedby="GroceryListName" placeholder="Enter List Name" />
+        <small id="GroceryListName" class="form-text text-muted">Please Enter the List Name.</small>
+    </div>
+
+    <div class="form-group">
+        <div class="d-flex justify-content-between">
+            <label for="GroceryListItems">Grocery List Items</label>
+            <span class="btn" @onclick="AddGroceryItem">
+                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg>
+            </span>
+        </div>
+
+        <ul class="list-group list-group-flush" id="GroceryListItems">
+            @foreach (var item in @GroceryList.Items)
+            {
+                <li class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between align-items-center">
+                        <InputText @bind-Value="@item.Name" class="form-control mr-1" placeholder="Enter Item Name" />
+                        <InputText @bind-Value="@item.Quantity" class="form-control mr-1 w-50" placeholder="Enter Quantity" />
+                        <div><small class="text-muted">Qty</small></div>
+                        
+                    </div>
+                </li>
+            }
+            @*<li class="list-group-item">Cras justo odio</li>*@
+        </ul>
+    </div>
+    
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <button type="submit" class="btn btn-primary"><span class="oi oi-task mr-1"></span>Register</button>
+
+</EditForm>
+
+@code {
+    public GroceryList GroceryList { get; set; } = new GroceryList();
+
+    public EditContext editContext { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        editContext = new EditContext(GroceryList);
+    }
+
+    private void RegisterGroceryList()
+    {
+        var isValid = editContext.Validate();
+
+        if (isValid)
+        {
+            Console.WriteLine(GroceryList.Name);
+            foreach (var item in GroceryList.Items)
+            {
+                Console.WriteLine(item.Name);
+            }
+        }
+    }
+
+    private void AddGroceryItem()
+    {
+        GroceryList.Items.Add(new GroceryItem());
+    }
+
+
+}
