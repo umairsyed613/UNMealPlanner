@@ -17,7 +17,7 @@ namespace UNMealPlanner.Services
             _localStorageService = localStorageService;
         }
 
-        public async Task RegisterMeals(Meals meals)
+        public async Task UpsertMeals(Meals meals)
         {
             var key = MakeKey(meals.DateTime);
 

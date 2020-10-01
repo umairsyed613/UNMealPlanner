@@ -1,10 +1,13 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 public class GroceryItem
 {
-    public string Name { get; set; }
+    [Required] public Guid Id { get; set; }
 
-    public string Quantity { get; set; }
+    [Required] public string Name { get; set; }
+
+    [Required] public string Quantity { get; set; }
 
     public DateTime CreatedAt { get; set; }
 

@@ -1,12 +1,16 @@
-
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 public class GroceryList
 {
-    public string Name { get; set; }
+    [Required] public Guid Id { get; set; }
 
-    public List<GroceryItem> Items { get; set; }
+    [Required] public string Name { get; set; }
+
+    public string Description { get; set; }
+
+    [Required] public List<GroceryItem> Items { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
@@ -19,12 +23,13 @@ public class GroceryList
 
     public void AddItem(GroceryItem item)
     {
-        if (Items == null)
-        {
-            throw new InvalidOperationException("Cannot add item to null list");
-        }
+        if (Items == null) { throw new InvalidOperationException("Cannot add item to null list"); }
 
         Items.Add(item);
     }
 
+    public int GetTodayDays()
+    {
+        return Convert.ToInt32((CreatedAt - DateTime.Now).TotalDays);
+    }
 }

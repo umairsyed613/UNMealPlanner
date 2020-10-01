@@ -6,7 +6,7 @@ namespace UNMealPlanner.Services
 {
     public interface IMealService
     {
-        Task RegisterMeals(Meals meals);
+        Task UpsertMeals(Meals meals);
         
         Task RemoveMeals(Meals meals);
 

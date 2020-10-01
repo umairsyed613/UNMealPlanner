@@ -1,9 +1,16 @@
+@inject IGroceryListService GroceryListService
 
 <EditForm EditContext="@editContext" OnValidSubmit="RegisterGroceryList">
     <div class="form-group">
         <label for="GroceryListName">List Name</label>
         <InputText @bind-Value="GroceryList.Name" class="form-control" id="GroceryListName" aria-describedby="GroceryListName" placeholder="Enter List Name" />
         <small id="GroceryListName" class="form-text text-muted">Please Enter the List Name.</small>
+    </div>
+    
+    <div class="form-group">
+        <label for="GroceryListDescription">Description</label>
+        <InputText @bind-Value="GroceryList.Description" class="form-control" id="GroceryListDescription" aria-describedby="GroceryListDescription" placeholder="Enter Description" />
+        <small id="GroceryListDesc" class="form-text text-muted">Please Enter the List Description.</small>
     </div>
 
     <div class="form-group">
@@ -28,7 +35,6 @@
                     </div>
                 </li>
             }
-            @*<li class="list-group-item">Cras justo odio</li>*@
         </ul>
     </div>
     
@@ -50,24 +56,25 @@
         editContext = new EditContext(GroceryList);
     }
 
-    private void RegisterGroceryList()
+    private async Task RegisterGroceryList()
     {
         var isValid = editContext.Validate();
 
         if (isValid)
         {
-            Console.WriteLine(GroceryList.Name);
-            foreach (var item in GroceryList.Items)
-            {
-                Console.WriteLine(item.Name);
-            }
+            GroceryList.Id = Guid.NewGuid();
+            GroceryList.CreatedAt = DateTime.Now;
+            await GroceryListService.UpsertGroceryList(GroceryList);
+
+            GroceryList = new GroceryList{ Id = Guid.NewGuid()};
+            editContext = new EditContext(GroceryList);
+            StateHasChanged();
         }
     }
 
     private void AddGroceryItem()
     {
-        GroceryList.Items.Add(new GroceryItem());
+        GroceryList.Items.Add(new GroceryItem{ CreatedAt = DateTime.Now, Id = Guid.NewGuid() });
     }
-
 
 }

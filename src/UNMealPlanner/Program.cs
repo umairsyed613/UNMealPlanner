@@ -23,6 +23,7 @@ namespace UNMealPlanner
                 builder.Services.AddBlazoredModal();
                 builder.Services.AddBlazoredLocalStorage();
                 builder.Services.AddScoped<IMealService, MealService>();
+                builder.Services.AddScoped<IGroceryListService, GroceryListService>();
                 await builder.Build().RunAsync();
             }
             catch (Exception e)
