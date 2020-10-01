@@ -49,11 +49,11 @@ namespace UNMealPlanner.Helpers
             temp = (int)lastDay;
             var j = 1;
 
-            while (temp >= 0)
+            while (temp < 7)
             {
                 var t = j++;
                 calenderViewItems.Add(BuildItem(t, true, new DateTime(year, nextMonth, t).DayOfWeek, nextMonth, year, monthFullName, true));
-                temp--;
+                temp++;
             }
 
             return calenderViewItems;

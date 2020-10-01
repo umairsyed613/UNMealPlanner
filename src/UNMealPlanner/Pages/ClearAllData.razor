@@ -1,0 +1,21 @@
+﻿@page "/clearalldata"
+@inject NavigationManager NavigationManager
+@inject IMealService MealService
+@inject IToastService toastService
+
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ClearData();
+
+        NavigationManager.NavigateTo("./");
+    }
+
+    public async Task ClearData()
+    {
+        await MealService.ClearAllData();
+        toastService.ShowSuccess("Your Data has been cleared!", "Information");
+    }
+}
