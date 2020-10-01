@@ -25,7 +25,7 @@
       "url": ".nojekyll"
     },
     {
-      "hash": "sha256-pTcuQPpt2itlkVDl9QFZeYFxNDGt\/vUXHQ9\/BPkPefI=",
+      "hash": "sha256-K8UKXasrpBIe2kF6hOQiMnwF184pnUWJmMtROLPvfRQ=",
       "url": "css\/app.css"
     },
     {
@@ -109,7 +109,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-DEHXp+G+UWav4kURYbPJk4KUPsrTz7mKU+uccXOLnBg=",
+      "hash": "sha256-WD+omM1EQiPkKUp3aeyRnBbweBf7FJIQEshRx17sDtc=",
       "url": "_framework\/_bin\/UNMealPlanner.dll"
     },
     {
@@ -341,9 +341,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-yfJZQYwbzR+4noxp\/WnQ7CKhIB\/q5uvPf21t0IKCgRM=",
+      "hash": "sha256-phtSln89KpMcYwCFNqELMAAGtz2TCkvFGSjU8QdG+0Y=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "qieivDiC"
+  "version": "bZb3N8Op"
 };

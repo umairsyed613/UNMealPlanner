@@ -97,12 +97,9 @@ app {
     color: #b31132;
 }
 
-
-/* .list-group-item {
-    padding: 0px !important;
-    padding-bottom: .75rem !important;
-    padding-top: 0.75rem !important;
-} */
+.validation-errors {
+    color: #b31132;
+}
 
 .list-group-item-action:focus,
 .list-group-item-action:hover {
