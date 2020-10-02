@@ -2,15 +2,11 @@
 
 <EditForm EditContext="@editContext" OnValidSubmit="RegisterGroceryList">
     <div class="form-group">
-        <label for="GroceryListName">List Name</label>
         <InputText @bind-Value="GroceryList.Name" class="form-control" id="GroceryListName" aria-describedby="GroceryListName" placeholder="Enter List Name" />
-        <small id="GroceryListName" class="form-text text-muted">Please Enter the List Name.</small>
     </div>
     
     <div class="form-group">
-        <label for="GroceryListDescription">Description</label>
         <InputText @bind-Value="GroceryList.Description" class="form-control" id="GroceryListDescription" aria-describedby="GroceryListDescription" placeholder="Enter Description" />
-        <small id="GroceryListDesc" class="form-text text-muted">Please Enter the List Description.</small>
     </div>
 
     <div class="form-group">
@@ -24,7 +20,7 @@
         </div>
 
         <ul class="list-group list-group-flush" id="GroceryListItems">
-            @foreach (var item in @GroceryList.Items)
+            @foreach (var item in @GroceryList.Items.OrderByDescending(o => o.CreatedAt))
             {
                 <li class="list-group-item">
                     <div class="d-flex w-100 justify-content-between align-items-center">

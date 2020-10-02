@@ -127,7 +127,6 @@ app {
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
     cursor: pointer;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     width: 18rem;
 }
 
@@ -149,6 +148,10 @@ app {
 .homeTiles {
     margin: auto;
     max-width: 80vw;
+}
+
+.displaynavigation {
+    visibility: hidden;
 }
 
 @media (max-width: 575.98px) {
@@ -181,6 +184,10 @@ app {
     .homeTiles {
         max-width: 100vw;
     }
+
+    .displaynavigation {
+        visibility: unset;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -206,6 +213,10 @@ app {
     .homeTiles {
         max-width: 93vw;
     }
+
+    .displaynavigation {
+        visibility: unset;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -222,6 +233,10 @@ app {
     .homeTiles {
         max-width: 80vw;
     }
+
+    .displaynavigation {
+        visibility: unset;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -234,6 +249,9 @@ app {
         max-width: 80vw;
     }
 
+    .displaynavigation {
+        visibility: unset;
+    }
 }
 
 @media (min-width: 1200px) {}

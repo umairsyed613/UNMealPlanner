@@ -4,48 +4,50 @@
 
 <div class="d-flex flex-column w-100">
     <div class="card w-100">
-         <div class="card-header d-flex flex-row">
+        <div class="card-header d-flex flex-row">
             <div class="mr-auto">
                 <h4>Grocery List</h4>
             </div>
             <button class="btn btn-outline-primary" @onclick="AddGroceryList">
                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                 </svg>
             </button>
         </div>
 
-      <div class="card-text">
-          <div class="list-group list-group-flush pb-2">
-              @if (GroceryListsData != null)
-              {
-                  foreach (var item in GroceryListsData)
-                  {
-                      <a href="./viewgrocery/@item.Key" class="list-group-item list-group-item-action">
-                          <div class="d-flex w-100 justify-content-between">
-                              <h5 class="mb-1">@item.Name</h5>
-                              <small>@item.GetTodayDays() days ago</small>
-                          </div>
-                          <p class="mb-1">@item.Description</p>
-                          @*<small>Donec id elit non mi porta.</small>*@
-                      </a>
-                  }
-              }
-              else
-              {
-                  <span class="p-4">You have no data registered!</span>
-              }
-              @*<a href="#" class="list-group-item list-group-item-action">
+        <div class="card-text">
+            <div class="list-group list-group-flush pb-2">
+                @if (GroceryListsData != null)
+                {
+                    foreach (var item in GroceryListsData)
+                    {
+                        <a href="./viewgrocery/@item.Key" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">@item.Name</h5>
+                                <small>@item.GetTodayDays() days ago</small>
+                            </div>
+                            <p class="mb-1">@item.Description</p>
+                            @*<small>Donec id elit non mi porta.</small>*@
+                        </a>
+                    }
+                }
+                else
+                {
+                    <span class="p-4">You have no data registered!</span>
+                }
+                @*<a href="#" class="list-group-item list-group-item-action">
                   <div class="d-flex w-100 justify-content-between">
                       <h5 class="mb-1">Grocery List 1</h5>
                       <small>3 days ago</small>
                   </div>
                   <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
                   <small>Donec id elit non mi porta.</small>*@
-          </div>
-      </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<CustomNavigator/>
 
 @code{
     private List<GroceryList> GroceryListsData;
