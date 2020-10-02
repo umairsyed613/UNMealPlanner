@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 public class GroceryItem
 {
-    [Required] public Guid Id { get; set; }
+    public string Key { get; set; } = Guid.NewGuid().ToString("N");
 
     [Required] public string Name { get; set; }
 

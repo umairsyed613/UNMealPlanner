@@ -62,11 +62,15 @@
 
         if (isValid)
         {
-            GroceryList.Id = Guid.NewGuid();
+            if (GroceryList.Items == null || GroceryList.Items.Any(a => string.IsNullOrEmpty(a.Name)) || string.IsNullOrEmpty(GroceryList.Key))
+            {
+                return;
+            }
+
             GroceryList.CreatedAt = DateTime.Now;
             await GroceryListService.UpsertGroceryList(GroceryList);
 
-            GroceryList = new GroceryList{ Id = Guid.NewGuid()};
+            GroceryList = new GroceryList();
             editContext = new EditContext(GroceryList);
             StateHasChanged();
         }
@@ -74,7 +78,7 @@
 
     private void AddGroceryItem()
     {
-        GroceryList.Items.Add(new GroceryItem{ CreatedAt = DateTime.Now, Id = Guid.NewGuid() });
+        GroceryList.Items.Add(new GroceryItem { CreatedAt = DateTime.Now });
     }
 
 }

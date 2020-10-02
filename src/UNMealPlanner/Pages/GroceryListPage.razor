@@ -21,7 +21,7 @@
               {
                   foreach (var item in GroceryListsData)
                   {
-                      <a href="#" class="list-group-item list-group-item-action">
+                      <a href="./viewgrocery/@item.Key" class="list-group-item list-group-item-action">
                           <div class="d-flex w-100 justify-content-between">
                               <h5 class="mb-1">@item.Name</h5>
                               <small>@item.GetTodayDays() days ago</small>
@@ -41,24 +41,7 @@
                       <small>3 days ago</small>
                   </div>
                   <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                  <small>Donec id elit non mi porta.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                  <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1">Grocery List 2</h5>
-                      <small>4 days ago</small>
-                  </div>
-                  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                  <small>Donec id elit non mi porta.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                  <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1">Grocery List 3</h5>
-                      <small>5 days ago</small>
-                  </div>
-                  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                  <small>Donec id elit non mi porta.</small>
-              </a>*@
+                  <small>Donec id elit non mi porta.</small>*@
           </div>
       </div>
     </div>
@@ -79,7 +62,7 @@
 
         if (result.Cancelled)
         {
-            Console.WriteLine("Modal is Cancelled");
+            //Console.WriteLine("Modal is Cancelled");
             await LoadList();
         }
     }

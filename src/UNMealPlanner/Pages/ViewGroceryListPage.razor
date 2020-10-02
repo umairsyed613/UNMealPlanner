@@ -1,0 +1,113 @@
+﻿@page "/viewgrocery/{id}"
+@inject IGroceryListService GroceryListService
+@inject IJSRuntime JsRuntime
+<style>
+
+    .groceryList ol {
+        counter-reset: li;
+        list-style: none;
+        padding: 0;
+        text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    }
+
+    .groceryList li {
+        position: relative;
+        display: block;
+        padding: .4em .4em .4em .8em;
+        *padding: .4em;
+        margin: .5em 0 .5em 2.5em;
+        background: #f9f9f9;
+        color: #222;
+        text-decoration: none;
+        transition: all .3s ease-out;
+        -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.15);
+        -moz-box-shadow: 0 1px 0 rgba(0,0,0,.15);
+        box-shadow: 0 1px 0 rgba(0,0,0,.15);
+    }
+
+        .groceryList li:hover {
+            background: #f1f1f1;
+        }
+
+        .groceryList li:before {
+            content: counter(li);
+            counter-increment: li;
+            position: absolute;
+            left: -2.5em;
+            top: 50%;
+            margin-top: -1em;
+            background: #a44c9f;
+            height: 2em;
+            width: 2em;
+            line-height: 2em;
+            text-align: center;
+            font-weight: bold;
+            color: #f9f9f9;
+        }
+
+        .groceryList li:after {
+            position: absolute;
+            content: '';
+            border: .5em solid transparent;
+            left: -1em;
+            top: 50%;
+            margin-top: -.5em;
+            transition: all .3s ease-out;
+        }
+
+        .groceryList li:hover:after {
+            left: -.5em;
+            border-left-color: #a44c9f;
+        }
+</style>
+
+<div class="d-flex flex-column p-3 border rounded">
+    @if (GroceryList == null)
+    {
+        <span>Loading...</span>
+    }
+    else
+    {
+
+        <div class="mb-2">
+            <h3>@GroceryList.Name</h3>
+            <hr />
+        </div>
+
+        <div class="groceryList mb-2">
+            <ol>
+                @foreach (var item in GroceryList.Items)
+                {
+                    <li><div class="d-flex flex-row flex-nowrap justify-content-between">
+                        <div>@item.Name</div>
+                        <div>@item.Quantity / Qty</div>
+                    </div></li>
+                }
+            </ol>
+        </div>
+    }
+</div>
+
+<div class="d-flex flex-row justify-content-center m-2">
+    <button class="btn btn-outline-secondary" @onclick="GobackClickHandler">Go Back To Groceries List</button>
+</div>
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+
+    private GroceryList GroceryList;
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+
+        GroceryList = await GroceryListService.GetGroceryListById(id);
+    }
+
+    async Task GobackClickHandler()
+    {
+        await JsRuntime.InvokeVoidAsync("goBack");
+    }
+
+}

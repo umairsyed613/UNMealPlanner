@@ -8,9 +8,11 @@ namespace UNMealPlanner.Services
     {
         Task<List<GroceryList>> GetALlGroceriesList();
 
+        Task<GroceryList> GetGroceryListById(string Id);
+
         Task UpsertGroceryList(GroceryList groceryList);
 
-        Task RemoveGroceryList(Guid Id);
+        Task RemoveGroceryList(string Id);
 
         Task ClearAllData();
 

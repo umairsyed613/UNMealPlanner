@@ -18,12 +18,9 @@ namespace UNMealPlanner.Services
             _localStorageService = localStorageService;
         }
 
-        public Task ClearAllData()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task ClearAllData() => await _localStorageService.RemoveItemAsync(_key);
 
-        public async Task RemoveGroceryList(Guid Id)
+        public async Task RemoveGroceryList(string Id)
         {
             if (await _localStorageService.ContainKeyAsync(_key))
             {
@@ -31,7 +28,7 @@ namespace UNMealPlanner.Services
 
                 if (data != null)
                 {
-                    var toRemove = data.FirstOrDefault(f => f.Id == Id);
+                    var toRemove = data.FirstOrDefault(f => f.Key == Id);
                     data.Remove(toRemove);
                     await UpsertAllGroceryLists(data);
                 }
@@ -40,9 +37,23 @@ namespace UNMealPlanner.Services
 
         public async Task<List<GroceryList>> GetALlGroceriesList() => await _localStorageService.GetItemAsync<List<GroceryList>>(_key);
 
+        public async Task<GroceryList> GetGroceryListById(string Id)
+        {
+            var data = await _localStorageService.GetItemAsync<List<GroceryList>>(_key);
+
+            if (data == null)
+            {
+                return null;
+            }
+
+            return data.FirstOrDefault(f => f.Key == Id);
+        }
+
         public async Task UpsertGroceryList(GroceryList groceryList)
         {
-            await RemoveGroceryList(groceryList.Id);
+            Console.WriteLine(groceryList.Key);
+
+            await RemoveGroceryList(groceryList.Key);
 
             var data = await GetALlGroceriesList();
 
