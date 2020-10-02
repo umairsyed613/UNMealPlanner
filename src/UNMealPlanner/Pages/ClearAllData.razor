@@ -1,21 +1,76 @@
-﻿@page "/clearalldata"
+﻿@page "/clearalldata/{clearType}"
 @inject NavigationManager NavigationManager
 @inject IMealService MealService
+@inject IGroceryListService GroceryListService
 @inject IToastService toastService
+@inject IModalService ModalService
 
 
 @code {
+    [Parameter]
+    public string clearType { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        await ClearData();
+        if (clearType.Equals("meals"))
+        {
+            await ClearMealsData();
+        }
+        else
+        {
+            await ClearGroceryData();
+        }
+    }
 
+    private void NavigateToHome()
+    {
         NavigationManager.NavigateTo("./");
     }
 
-    public async Task ClearData()
+    public async Task ClearMealsData()
     {
-        await MealService.ClearAllData();
-        toastService.ShowSuccess("Your Data has been cleared!", "Information");
+        var param = new ModalParameters();
+        param.Add("Message", "Are you sure you want to clear all Meals?");
+
+        var toast = ModalService.Show<Confirmation>("Confirmation?", param);
+        var res = await toast.Result;
+        if (res.Cancelled)
+        {
+            NavigateToHome();
+        }
+
+        var confirm = (bool)res.Data;
+
+        if (confirm)
+        {
+            await MealService.ClearAllData();
+            toastService.ShowSuccess("Your Data has been cleared!", "Information");
+        }
+
+        NavigateToHome();
+    }
+
+    public async Task ClearGroceryData()
+    {
+        var param = new ModalParameters();
+        param.Add("Message", "Are you sure you want to clear all Grocery lists?");
+
+        var toast = ModalService.Show<Confirmation>("Confirmation?", param);
+        var res = await toast.Result;
+
+        if (res.Cancelled)
+        {
+            NavigateToHome();
+        }
+
+        var confirm = (bool)res.Data;
+
+        if (confirm)
+        {
+            await GroceryListService.ClearAllData();
+            toastService.ShowSuccess("Your Data has been cleared!", "Information");
+        }
+
+        NavigateToHome();
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -51,8 +50,6 @@ namespace UNMealPlanner.Services
 
         public async Task UpsertGroceryList(GroceryList groceryList)
         {
-            Console.WriteLine(groceryList.Key);
-
             await RemoveGroceryList(groceryList.Key);
 
             var data = await GetALlGroceriesList();
