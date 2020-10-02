@@ -25,7 +25,7 @@
       "url": ".nojekyll"
     },
     {
-      "hash": "sha256-K8UKXasrpBIe2kF6hOQiMnwF184pnUWJmMtROLPvfRQ=",
+      "hash": "sha256-vhzpA4QPq\/GBgJ6YpxYubffIZ+vSoseZlWvFT3KiBeQ=",
       "url": "css\/app.css"
     },
     {
@@ -89,6 +89,26 @@
       "url": "icon-512.png"
     },
     {
+      "hash": "sha256-X19eFsr5rYmg7lSgPJJtrZlBNhqBb0KxGwKID+Zi0nk=",
+      "url": "images\/grocerylist_tile.png"
+    },
+    {
+      "hash": "sha256-E7xUvfr5HIdpH7g1QS5TTbvUmBhInZDDFgL71hSaFlg=",
+      "url": "images\/mealplanner_tile.png"
+    },
+    {
+      "hash": "sha256-hEQQG\/j4Tnx+Wy6sxSddCLTvaGBaXKT37B8XHGdhFrY=",
+      "url": "images\/notes-tiles.png"
+    },
+    {
+      "hash": "sha256-\/hB0R8ji5CGuLu3oMKgVlMrgXcbI1ml3cfS5HzEVIGg=",
+      "url": "images\/reports_tiles.png"
+    },
+    {
+      "hash": "sha256-aw4foSUwx0wQVW5UefvIBL14OnuRWT4wt0Miq03nNH4=",
+      "url": "images\/todo_tile.png"
+    },
+    {
       "hash": "sha256-mw8+QRk5f8\/FgNNFD9kMVALNjVtMXI8YlKBzPcUweUc=",
       "url": "index.html"
     },
@@ -113,7 +133,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-3cF\/ko2CHOIpN\/xrEccsRoeyNl10p0zuuP5v5494fNk=",
+      "hash": "sha256-n9js48OqhsQVQI3kVPspy6D2nR89JoP+ed6DcJw249Y=",
       "url": "_framework\/_bin\/UNMealPlanner.dll"
     },
     {
@@ -345,9 +365,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-FrzAOwyvcUdcjf5AQI5TSbUNdEoeHaQkkmbx0tHfa9A=",
+      "hash": "sha256-JMAjfNAUtEjtB67L3\/YR8nW0TU8JecX5+tEr\/NBXysw=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "jIsq6EE7"
+  "version": "25xdEdmH"
 };

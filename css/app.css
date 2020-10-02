@@ -23,7 +23,7 @@ app {
     color: #4d4d4d;
     padding: 9px 12px 9px 18px;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.21);
-    margin-top: 30px;
+    margin-top: 5px;
     font-size: 12px;
 }
 
@@ -114,6 +114,43 @@ app {
 }
 
 
+.tile {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    cursor: pointer;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    width: 18rem;
+}
+
+.tile:hover {
+    background-color: #b31132;
+    color: #ffffff !important;
+}
+
+.card-img-top {
+    max-height: 163px !important;
+    max-width: 163px !important;
+}
+
+.tileImg {
+    max-height: 163px !important;
+    max-width: 286px !important;
+}
+
+.homeTiles {
+    margin: auto;
+    max-width: 80vw;
+}
+
 @media (max-width: 575.98px) {
     .txt-resp {
         font-size: 3vw;
@@ -130,6 +167,19 @@ app {
     }
     .day {
         height: 60px !important;
+    }
+
+    .tileImg {
+        max-width: 100vw !important;
+    }
+
+    .tile {
+        width: 100vw;
+        margin-right: 0px !important;
+    }
+
+    .homeTiles {
+        max-width: 100vw;
     }
 }
 
@@ -149,6 +199,13 @@ app {
     .day {
         height: 80px !important;
     }
+    .tile {
+        width: 11.84rem;
+    }
+
+    .homeTiles {
+        max-width: 93vw;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -161,8 +218,22 @@ app {
     .day {
         height: 100px !important;
     }
+
+    .homeTiles {
+        max-width: 80vw;
+    }
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+    .tile {
+        width: 16rem;
+    }
+
+    .homeTiles {
+        max-width: 80vw;
+    }
+
+}
 
 @media (min-width: 1200px) {}
