@@ -1,0 +1,14 @@
+﻿#toTopBtn {
+    position: fixed;
+    bottom: 26px;
+    right: 45vw;
+    z-index: 98;
+    padding: 21px;
+    background: url(../images/cd-top-arrow.svg) no-repeat center 50%;
+    background-color: #489FAD;
+    opacity: .5;
+}
+
+    #toTopBtn:hover {
+        opacity: 1;
+    }

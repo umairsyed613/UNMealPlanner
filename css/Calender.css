@@ -97,7 +97,7 @@
     right: 0%;
     font-size: 12px !important;
 }
-
+/*
 .task {
     border-left-width: 3px;
     padding: 8px 12px;
@@ -198,3 +198,77 @@
         font-weight: 500;
         color: rgba(81, 86, 93, 0.7);
     }
+*/
+
+/*              Mobile View                   */
+
+.mobileDayDiv {
+    width: 15vw;
+    max-height: 60px;
+}
+
+.mobileDayNum {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.mobileDayName {
+    font-size: 0.7rem;
+}
+
+.mobileMealsDiv {
+    min-height: 60px;
+}
+
+.calendar-header-mobile {
+    text-align: center;
+    padding: 10px 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fafbfd), to(rgba(255, 255, 255, 0)));
+    background: linear-gradient(to bottom, #fafbfd 0%, rgba(255, 255, 255, 0) 100%);
+    /*border-bottom: 1px solid rgba(166, 168, 179, 0.12);*/
+}
+
+.calendar-header-mobile h1 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.calendar-header-mobile p {
+    margin: 5px 0 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(81, 86, 93, 0.4);
+}
+
+.mealType {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+.mealName {
+
+}
+
+.mealCalories{}
+
+.Breakfast {
+    color: #ff8100;
+}
+.Brunch {
+    color: #946000;
+}
+.Elevenses {
+    color: #03670f;
+}
+.Lunch {
+    color: #2cb300;
+}
+.Tea {
+    color: #ff8d00;
+}
+.Supper {
+    color: #0014ff;
+}
+.Dinner {
+    color: #b31132;
+}
