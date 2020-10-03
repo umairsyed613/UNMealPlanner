@@ -17,6 +17,7 @@
         <span>Total Calories : </span>
         <span>@MealsOfDay.GetTotalCalories()</span>
     </div>
+    <hr />
 
     @if (MealsOfDay.DayMeals.Count < 3 && !ShowRegisterMeal && !Item.IsReadonly)
     {
@@ -41,18 +42,11 @@ else
 
 @if (ShowRegisterMeal)
 {
-    <h4>Register Meal</h4>
     <hr />
     <EditForm EditContext="@mealEditForm" OnValidSubmit="RegisterMeal">
         <div class="form-group">
             <label for="exampleFormControlSelect1">
-                Meal Type <a @onclick="@(() => NavigationManager.NavigateTo("/mealtypes"))">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"></path>
-                        <circle cx="8" cy="4.5" r="1"></circle>
-                    </svg>
-                </a>
+                Meal Type
             </label>
             <InputSelect class="form-control" id="exampleFormControlSelect1" @bind-Value="Meal.MealType">
                 @foreach (var value in Enum.GetValues(typeof(MealType)))
@@ -64,17 +58,24 @@ else
             {
                 <small class="validation-errors">This meal type has already exists!</small>
             }
+
+            <small>
+                <a class="cursor-pointer text-muted" @onclick="@(() => NavigationManager.NavigateTo("/mealtypes"))">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"></path>
+                        <circle cx="8" cy="4.5" r="1"></circle>
+                    </svg> Read more about meal types here
+                </a>
+            </small>
         </div>
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Meal Name</label>
-            <InputText @bind-Value="Meal.DishName" class="form-control" id="exampleInputEmail1" aria-describedby="mealNameHelp" placeholder="Enter Meal Name" />
-            <small id="mealNameHelp" class="form-text text-muted">Please Enter the Meal Name.</small>
+            <InputText @bind-Value="Meal.DishName" class="form-control text-capitalize" id="exampleInputEmail1" aria-describedby="mealNameHelp" placeholder="Enter Meal Name" />
         </div>
         <div class="form-group">
-            <label for="cal">Meal Calories</label>
             <InputNumber @bind-Value="Meal.CaloriesCount" class="form-control" id="cal" aria-describedby="calHelp" placeholder="Enter Calories Count" />
-            <small id="calHelp" class="form-text text-muted">Please Enter the Meal Calories Count.</small>
+            <small class="text-muted">Claories</small>
         </div>
 
         <DataAnnotationsValidator />

@@ -1,16 +1,60 @@
 ﻿@inject IModalService Modal
+@inject IMealService MealService
 
-@if (Item.IsDisabled)
+
+@if (IsMobileView)
 {
-    <div @onclick="ShowMealDialog" class="day day--disabled@(isNoBorderRight ? "" : " day-border-right")">@Item.Day</div>
+    <div class="d-flex flex-row flex-nowrap mb-2">
+        <div class="mobileDayDiv rounded flex-column text-center bg-white p-2">
+            <div class="mobileDayNum">@Item.Day</div>
+            <div class="mobileDayName">@Item.DayOfWeek.ToString().Substring(0, 3)</div>
+            @*<div class="mobileDayName">Plan</div>*@
+        </div>
+        <div class="mobileMealsDiv rounded ml-2 p-2 bg-white w-100" id ="@(isToday ? "todayMobile" : "unknown"))">
+            @if (MealsOfDay != null)
+            {
+                @foreach (var data in MealsOfDay.DayMeals)
+                {
+                    <div class="flex-column">
+                        <div class="mealType mb-1 @data.MealType">@data.MealType</div>
+                        <div class="mealName text-capitalize text-break mb-1">@data.DishName</div>
+                        <div class="mealCalories"><small class="text-muted">Calories : @data.CaloriesCount</small></div>
+                    </div>
+                    <div class="mealsDivider mt-1 mb-1 border-top"></div>
+                }
+
+            }
+            else
+            {
+                <div class="mealName"><small class="text-muted">No Meals planned!</small></div>
+            }
+        </div>
+    </div>
+    <div class="mt-1 mb-2 border-top"></div>
 }
 else
 {
-    <div @onclick="ShowMealDialog" class="day@(isNoBorderRight ? "" : " day-border-right") @(Item.IsCurrentDay ? "today" : "")">@Item.Day</div>
+    @if (Item.IsDisabled)
+    {
+        <div @onclick="ShowMealDialog" class="day day--disabled@(isNoBorderRight ? "" : " day-border-right")">@Item.Day</div>
+    }
+    else
+    {
+        <div @onclick="ShowMealDialog" class="day@(isNoBorderRight ? "" : " day-border-right") @(Item.IsCurrentDay ? "today" : "")">@Item.Day</div>
+    }
 }
+
+
 @code {
 
+    [Parameter]
+    public bool IsMobileView { get; set; }
+
     private bool isNoBorderRight = false;
+
+    private Meals MealsOfDay;
+
+    private bool isToday = false;
 
     [Parameter]
     public int Nr
@@ -24,11 +68,26 @@ else
     [Parameter]
     public CalenderViewItem Item { get; set; }
 
+    protected override async Task OnParametersSetAsync()
+    {
+        if (IsMobileView)
+        {
+            await GetMealsForTheDay();
+        }
+
+        isToday = Item.IsCurrentDay;
+    }
+
     private void ShowMealDialog()
     {
         var param = new ModalParameters();
         param.Add(nameof(MealComponent.Item), Item);
 
         Modal.Show<MealComponent>($"Meal Plan ({Item.DayOfWeek} {Item.Day} {Item.MonthName} {Item.Year})", param);
+    }
+
+    private async Task GetMealsForTheDay()
+    {
+        MealsOfDay = await MealService.GetMealsByDatetime(Item.Date);
     }
 }

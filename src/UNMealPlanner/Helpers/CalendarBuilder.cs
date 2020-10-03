@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-
 using UNMealPlanner.Models;
 
 namespace UNMealPlanner.Helpers
@@ -19,7 +18,7 @@ namespace UNMealPlanner.Helpers
             var monthFullName = GetMonthName(year, month);
 
             var calenderViewItems = new List<CalenderViewItem>();
-            
+
             var day = new DateTime(year, month, 1).DayOfWeek;
 
             var today = DateTime.Now.Day;
@@ -54,6 +53,23 @@ namespace UNMealPlanner.Helpers
                 var t = j++;
                 calenderViewItems.Add(BuildItem(t, true, new DateTime(year, nextMonth, t).DayOfWeek, nextMonth, year, monthFullName, true));
                 temp++;
+            }
+
+            return calenderViewItems;
+        }
+
+        public static List<CalenderViewItem> GetDaysOfMonthForMobileView(int year, int month)
+        {
+            var monthFullName = GetMonthName(year, month);
+
+            var calenderViewItems = new List<CalenderViewItem>();
+            var today = DateTime.Now.Day;
+
+            var daysInSelectedMonth = DateTime.DaysInMonth(year, month);
+
+            for (int i = 1; i <= daysInSelectedMonth; i++)
+            {
+                calenderViewItems.Add(BuildItem(i, false, new DateTime(year, month, i).DayOfWeek, month, year, monthFullName, i < today));
             }
 
             return calenderViewItems;

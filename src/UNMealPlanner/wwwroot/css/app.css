@@ -1,7 +1,14 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 html,
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 app {
@@ -154,6 +161,15 @@ app {
     visibility: hidden;
 }
 
+.DisplayCalendarMobile {
+    visibility: hidden;
+    display: none;
+}
+
+.DisplayCalendarMonth {
+    visibility: unset;
+}
+
 @media (max-width: 575.98px) {
     .txt-resp {
         font-size: 3vw;
@@ -188,6 +204,16 @@ app {
     .displaynavigation {
         visibility: unset;
     }
+
+    .DisplayCalendarMobile {
+        visibility: unset;
+        display: block;
+    }
+
+    .DisplayCalendarMonth {
+        visibility: hidden;
+        display: none;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -216,6 +242,16 @@ app {
 
     .displaynavigation {
         visibility: unset;
+    }
+
+    .DisplayCalendarMobile {
+        visibility: unset;
+        display: block;
+    }
+
+    .DisplayCalendarMonth {
+        visibility: hidden;
+        display: none;
     }
 }
 

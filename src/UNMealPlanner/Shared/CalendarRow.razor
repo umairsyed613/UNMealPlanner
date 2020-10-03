@@ -1,13 +1,13 @@
-﻿<div class="d-flex flex-row flex-nowrap">
-    @for(int i = 1; i <= Data.Count; i++)
+﻿
+<div class="d-flex flex-row flex-nowrap">
+    @for (int i = 1; i <= Data.Count; i++)
     {
         var j = i - 1;
-        <CalendarDay Item="@Data[j]" Nr="i"/>
+        <CalendarDay Item="@Data[j]" Nr="i" IsMobileView="false" />
     }
 </div>
 
 @code {
     [Parameter]
     public List<CalenderViewItem> Data { get; set; }
-
 }

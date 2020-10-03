@@ -1,20 +1,16 @@
 ﻿@page "/mealplanner"
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
-@if (IsWeekView)
-{
-    <WeekView />
-}
-else
-{
+<div class="DisplayCalendarMobile">
+    <CalendarMobile/>
+</div>
+<div class="DisplayCalendarMonth">
     <CalendarFlex />
-}
+</div>
 
 <CustomNavigator />
 
 
 @code {
-
-    public bool IsWeekView = false;
 
 }
