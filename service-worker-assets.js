@@ -369,10 +369,6 @@
       "url": "_framework\/wasm\/dotnet.3.2.0.js"
     },
     {
-      "hash": "sha256-3S0qzYaBEKOBXarzVLNzNAFXlwJr6nI3lFlYUpQTPH8=",
-      "url": "_framework\/wasm\/dotnet.timezones.dat"
-    },
-    {
       "hash": "sha256-UC\/3Rm1NkdNdlIrzYARo+dO\/HDlS5mhPxo0IQv7kma8=",
       "url": "_framework\/wasm\/dotnet.wasm"
     },
@@ -381,9 +377,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-F+Ma6Phy0QHr861WkAFPEsr2xf3SZl6yCAtXA7tNVB8=",
+      "hash": "sha256-33lP6UY2zA8MXSiBcofld\/3SIO99OfXrdmtLbpsE5Ho=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "LdlAi+Cd"
+  "version": "ZT0eqq+b"
 };
