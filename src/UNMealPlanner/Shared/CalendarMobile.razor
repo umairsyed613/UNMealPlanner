@@ -1,10 +1,15 @@
 ﻿@inject IJSRuntime JsRuntime
 <style>
-    .container-fluid{
-        padding: 0 !important;
+    @@media (max-width: 575.98px) {
+        .container-fluid {
+            padding: 0 !important;
+        }
     }
-    .cal-mobile {
-        background-color: #eaeaea;
+
+    @@media (min-width: 576px) and (max-width: 767.98px) {
+        .container-fluid {
+            padding: 0 !important;
+        }
     }
 </style>
 <div class="d-flex flex-column user-select-none">
@@ -16,10 +21,10 @@
     </div>
     <div class="d-flex flex-row flex-nowrap cal-mobile">
         <div class="d-flex flex-column w-100 p-1">
-            @for(int i = 1; i <= CalenderData.Count; i++)
+            @for (int i = 1; i <= CalenderData.Count; i++)
             {
                 var j = i - 1;
-                <CalendarDay Item="@CalenderData[j]" Nr="i" IsMobileView="true"/>
+                <CalendarDay Item="@CalenderData[j]" Nr="i" IsMobileView="true" />
             }
         </div>
     </div>

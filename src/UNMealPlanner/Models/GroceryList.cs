@@ -30,6 +30,6 @@ public class GroceryList
 
     public int GetTodayDays()
     {
-        return Convert.ToInt32((CreatedAt - DateTime.Now).TotalDays);
+        return Math.Abs(Convert.ToInt32((CreatedAt - DateTime.Now).TotalDays));
     }
 }
