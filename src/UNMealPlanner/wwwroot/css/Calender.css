@@ -207,6 +207,11 @@
     max-height: 60px;
 }
 
+.mobileDayDivToday {
+    background-color: #b31132 !important;
+    color: white !important;
+}
+
 .mobileDayNum {
     font-size: 1rem;
     font-weight: bold;
@@ -270,5 +275,9 @@
     color: #0014ff;
 }
 .Dinner {
+    color: #b31132;
+}
+
+.mealRegisterMobBtn:hover {
     color: #b31132;
 }

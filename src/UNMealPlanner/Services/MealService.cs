@@ -32,6 +32,8 @@ namespace UNMealPlanner.Services
             //    Console.WriteLine("Old Record has been removed");
             //}
 
+            meals.DayMeals = meals.DayMeals.OrderBy(o => (int)o.MealType).ToList();
+
             data.Add(meals);
 
             await UpsertMealsList(data);

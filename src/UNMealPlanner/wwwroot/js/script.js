@@ -10,22 +10,41 @@ function goForward() {
 }
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     if (!!mybutton) {
         mybutton.style.display = "none";
     }
 
-    if (!!document.getElementById("todayMobile")) {
-        document.getElementById("todayMobile").scrollIntoView();
-    }
+    //var checkExist = setInterval(function () {
+    //    var today = document.getElementById("todayMobile");
+    //    console.log('checking today');
+
+    //    if (!!today) {
+    //        console.log('found today');
+    //        today.scrollIntoView();
+    //        clearInterval(checkExist);
+    //    }
+    //}, 100);
 });
 
+function CheckForToday() {
+    var checkExist = setInterval(function () {
+        var today = document.getElementById("todayMobile");
+        //console.log('checking today');
+
+        if (!!today) {
+            //console.log('found today');
+            today.scrollIntoView();
+            clearInterval(checkExist);
+        }
+    }, 100);
+}
 
 //Get the button
 var mybutton = document.getElementById("toTopBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {

@@ -2,7 +2,7 @@
 
 @if (Meal != null)
 {
-    <div class="w-70 txt-resp">@Meal.DishName</div>
+    <div class="w-70 txt-resp pr-2 text-capitalize">@Meal.DishName</div>
     <div class="w-15 txt-resp">@Meal.MealType</div>
     <div class="w-10 txt-resp text-right">@Meal.CaloriesCount</div>
     <div class="w-5 txt-resp text-right"><span class="oi oi-trash cursor-pointer" @onclick="@(() => onRemove.InvokeAsync(Meal))"></span></div>

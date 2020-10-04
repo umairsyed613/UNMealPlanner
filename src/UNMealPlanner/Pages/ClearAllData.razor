@@ -34,20 +34,28 @@
 
         var toast = ModalService.Show<Confirmation>("Confirmation?", param);
         var res = await toast.Result;
-        if (res.Cancelled)
+
+        if (res.Cancelled || res.Data == null)
         {
             NavigateToHome();
         }
-
-        var confirm = (bool)res.Data;
-
-        if (confirm)
+        else
         {
-            await MealService.ClearAllData();
-            toastService.ShowSuccess("Your Data has been cleared!", "Information");
-        }
+            try
+            {
+                var confirm = (bool)res.Data;
 
-        NavigateToHome();
+                if (confirm)
+                {
+                    await MealService.ClearAllData();
+                    toastService.ShowSuccess("Your Data has been cleared!", "Information");
+                }
+            }
+            finally
+            {
+                NavigateToHome();
+            }
+        }
     }
 
     public async Task ClearGroceryData()
@@ -58,19 +66,26 @@
         var toast = ModalService.Show<Confirmation>("Confirmation?", param);
         var res = await toast.Result;
 
-        if (res.Cancelled)
+        if (res.Cancelled || res.Data == null)
         {
             NavigateToHome();
         }
-
-        var confirm = (bool)res.Data;
-
-        if (confirm)
+        else
         {
-            await GroceryListService.ClearAllData();
-            toastService.ShowSuccess("Your Data has been cleared!", "Information");
-        }
+            try
+            {
+                var confirm = (bool)res.Data;
 
-        NavigateToHome();
+                if (confirm)
+                {
+                    await GroceryListService.ClearAllData();
+                    toastService.ShowSuccess("Your Data has been cleared!", "Information");
+                }
+            }
+            finally
+            {
+                NavigateToHome();
+            }
+        }
     }
 }
