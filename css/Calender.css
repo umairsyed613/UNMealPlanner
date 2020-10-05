@@ -28,6 +28,12 @@
     border-radius: 10px;
     /*background-color: #343a40;*/
 }
+
+.cal-containerMobile {
+    margin: auto;
+    overflow: hidden;
+    max-width: 1051px;
+}
 .day {
     border-bottom: 1px solid rgba(166, 168, 179, 0.12);
     text-align: right;
@@ -223,15 +229,23 @@
 
 .mobileMealsDiv {
     min-height: 60px;
+    border-radius: .25rem 3rem;
+    transition: 0.2s ease-in-out;
 }
+    .mobileMealsDiv:hover {
+        border-radius: 3rem .25rem;
+        -ms-transform: skew(0.5deg, 0.5deg); /* IE 9 */
+        transform: skew(0.5deg, 0.5deg); /* Standard syntax */
+    }
+    }
 
-.calendar-header-mobile {
-    text-align: center;
-    padding: 10px 0;
-    background: -webkit-gradient(linear, left top, left bottom, from(#fafbfd), to(rgba(255, 255, 255, 0)));
-    background: linear-gradient(to bottom, #fafbfd 0%, rgba(255, 255, 255, 0) 100%);
-    /*border-bottom: 1px solid rgba(166, 168, 179, 0.12);*/
-}
+    .calendar-header-mobile {
+        text-align: center;
+        padding: 10px 0;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fafbfd), to(rgba(255, 255, 255, 0)));
+        background: linear-gradient(to bottom, #fafbfd 0%, rgba(255, 255, 255, 0) 100%);
+        /*border-bottom: 1px solid rgba(166, 168, 179, 0.12);*/
+    }
 
 .calendar-header-mobile h1 {
     margin: 0;
