@@ -72,6 +72,10 @@
     private async Task LoadList()
     {
         GroceryListsData = await GroceryListService.GetALlGroceriesList();
+        if (GroceryListsData != null)
+        {
+            GroceryListsData = GroceryListsData.OrderByDescending(o => o.CreatedAt).ToList();
+        }
         StateHasChanged();
     }
 

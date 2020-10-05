@@ -1,6 +1,6 @@
 {
-  "name": "UNMealPlanner",
-  "short_name": "UNMealPlanner",
+  "name": "MealPlanner",
+  "short_name": "MealPlanner",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",

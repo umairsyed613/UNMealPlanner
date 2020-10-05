@@ -1,4 +1,5 @@
 ﻿@page "/viewgrocery/{id}"
+@using System.Runtime.CompilerServices
 @inject IGroceryListService GroceryListService
 <style>
 
@@ -59,6 +60,66 @@
             left: -.5em;
             border-left-color: #b31132;
         }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
 </style>
 
 <div class="d-flex flex-column p-3 border rounded">
@@ -75,9 +136,9 @@
             <h3 class="user-select-none">@GroceryList.Name</h3>
             <small class="text-muted user-select-none">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                    <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-                    <circle cx="8" cy="4.5" r="1"/>
+                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
+                    <circle cx="8" cy="4.5" r="1" />
                 </svg>Tap on the grocery item to mark it as done.
             </small>
             <hr />
@@ -88,8 +149,8 @@
                 @foreach (var item in GroceryList.Items)
                 {
                     <li @onclick="@(() => MarkItemCompleted(item.Key))" data-toggle="tooltip" data-placement="top" title="Tap to mark it completed">
-                        <div class="d-flex flex-row flex-nowrap justify-content-between">
-                            <div>
+                        <div class="d-flex flex-row flex-nowrap justify-content-between align-items-center">
+                            <div class="text-capitalize flex-grow-1">
                                 @if (item.IsCompleted)
                                 {
                                     <s>@item.Name</s>
@@ -99,7 +160,13 @@
                                     @item.Name
                                 }
                             </div>
-                            <div>@item.Quantity <small class="text-muted">/ Qty</small></div>
+                            <div class="mr-2">@item.Quantity <small class="text-muted">/ Qty</small></div>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" checked=@item.IsCompleted @onclick="@(() => MarkItemCompleted(item.Key))">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
                     </li>
                 }
@@ -119,7 +186,19 @@
 
     protected override async Task OnParametersSetAsync()
     {
+        await GetList();
+    }
+
+    private async Task GetList()
+    {
         GroceryList = await GroceryListService.GetGroceryListById(id);
+
+        if (GroceryList != null)
+        {
+            GroceryList.Items = GroceryList.Items.OrderBy(o => o.IsCompleted).ToList();
+        }
+
+        StateHasChanged();
     }
 
     private async Task MarkItemCompleted(string key)
@@ -132,8 +211,8 @@
         }
 
         await GroceryListService.UpsertGroceryList(GroceryList);
-        GroceryList = await GroceryListService.GetGroceryListById(id);
-        StateHasChanged();
+
+        await GetList();
     }
 
 }

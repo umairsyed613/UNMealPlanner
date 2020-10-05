@@ -23,20 +23,25 @@
                     <div class="mealsDivider mt-1 mb-1 border-top"></div>
                 }
                 <div class="mealCalories"><small class="text-muted">Total Calories : @MealsOfDay.GetTotalCalories()</small></div>
-
-                <div class="d-flex justify-content-end">
-                    <button class="btn mealRegisterMobBtn" @onclick="ShowMealDialog">
-                        <span class="oi oi-task" data-toggle="tooltip" data-placement="left" title="Tap register meals"></span>
-                    </button>
-                </div>
+                @if (!Item.IsReadonly)
+                {
+                    <div class="d-flex justify-content-end">
+                        <button class="btn mealRegisterMobBtn" @onclick="ShowMealDialog">
+                            <span class="oi oi-task" data-toggle="tooltip" data-placement="left" title="Tap register meals"></span>
+                        </button>
+                    </div>
+                }
             }
             else
             {
                 <div class="mealName">
                     <small class="text-muted">No Meals planned!</small>
-                    <button class="btn mealRegisterMobBtn float-right" @onclick="ShowMealDialog">
-                        <span class="oi oi-task" data-toggle="tooltip" data-placement="left" title="Tap register meals"></span>
-                    </button>
+                    @if (!Item.IsReadonly)
+                    {
+                        <button class="btn mealRegisterMobBtn float-right" @onclick="ShowMealDialog">
+                            <span class="oi oi-task" data-toggle="tooltip" data-placement="left" title="Tap register meals"></span>
+                        </button>
+                    }
                 </div>
             }
         </div>
