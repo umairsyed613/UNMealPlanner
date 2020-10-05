@@ -1,16 +1,32 @@
 ﻿@page "/mealplanner"
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject AppStates AppStates
 
-<div class="DisplayCalendarMobile">
-    <CalendarMobile/>
+@*<div class="DisplayCalendarMobile">
+    <CalendarMobile ChangeView="ToggleView" />
 </div>
 <div class="DisplayCalendarMonth">
-    <CalendarFlex />
-</div>
+    <CalendarFlex ChangeView="ToggleView" />
+</div>*@
+
+@if (AppStates.IsMobileView)
+{
+    <CalendarMobile ChangeView="ToggleView" />
+}
+else
+{
+    <CalendarFlex ChangeView="ToggleView" />
+}
 
 <CustomNavigator />
 
 
 @code {
+
+    private void ToggleView()
+    {
+        AppStates.IsMobileView = !AppStates.IsMobileView;
+        StateHasChanged();
+    }
 
 }

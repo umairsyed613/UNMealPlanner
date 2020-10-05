@@ -7,6 +7,7 @@ using Blazored.LocalStorage;
 using Blazored.Modal;
 using UNMealPlanner.Services;
 using Blazored.Toast;
+using UNMealPlanner.Helpers;
 
 namespace UNMealPlanner
 {
@@ -24,6 +25,8 @@ namespace UNMealPlanner
                 builder.Services.AddBlazoredLocalStorage();
                 builder.Services.AddScoped<IMealService, MealService>();
                 builder.Services.AddScoped<IGroceryListService, GroceryListService>();
+                builder.Services.AddSingleton(new AppStates());
+
                 await builder.Build().RunAsync();
             }
             catch (Exception e)

@@ -59,3 +59,14 @@ function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+//function showCalendarSwitchPopOver() {
+//    $('#SwitchView').popover('hide');
+
+//    $('#SwitchView').popover({
+//        'placement':'left',
+//        'content':'Tap to switch the view!'
+//    }).popover('show');
+
+//    setTimeout(function(){ $('#SwitchView').popover('hide'); }, 2000);
+//}
