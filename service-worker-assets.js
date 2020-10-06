@@ -41,7 +41,7 @@
       "url": "css\/Calender.css"
     },
     {
-      "hash": "sha256-ChjmrnTmJe1L3EEk26g7d+tSwWoCNdwiEyMyjZQQ6Nw=",
+      "hash": "sha256-uB109djmNSRHRoy8XjIrdYQB3YELMEFtVOdSXeBPFsY=",
       "url": "css\/GroceryListStyles.css"
     },
     {
@@ -389,5 +389,5 @@
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "nAOVZY9O"
+  "version": "hWThsxrW"
 };
