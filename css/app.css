@@ -5,16 +5,24 @@ html,
 body {
     /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
     font-family: 'Roboto', sans-serif;
-}
-
-body {
-    min-height: 100vh;
+    background-color: #eaeaea;
 }
 
 app {
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.container-fluid {
+    padding-bottom: 60px !important;
+}
+
+.mycontainerHeight {
+    /*height: 100vh;*/ /* Fallback for browsers that do not support Custom Properties */
+    /*height: calc(var(--vh, 1vh) * 88);
+    overflow: hidden;
+    overflow-y: scroll;*/
 }
 
 .centered-axis-x {
@@ -50,12 +58,12 @@ app {
     z-index: 1000;
 }
 
-#blazor-error-ui .dismiss {
-    cursor: pointer;
-    position: absolute;
-    right: 0.75rem;
-    top: 0.5rem;
-}
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
 
 .blazored-modal {
     width: 80vw !important;
@@ -117,7 +125,6 @@ app {
 }
 
 .groceryItemAdd {
-
 }
 
 
@@ -137,10 +144,10 @@ app {
     width: 18rem;
 }
 
-.tile:hover {
-    background-color: #b31132;
-    color: #ffffff !important;
-}
+    .tile:hover {
+        background-color: #b31132;
+        color: #ffffff !important;
+    }
 
 .card-img-top {
     max-height: 163px !important;
@@ -162,19 +169,31 @@ app {
 }
 
 @media (max-width: 575.98px) {
-        .txt-resp {
+
+    .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 60px !important;
+    }
+
+    .txt-resp {
         font-size: 3vw;
     }
+
     .blazored-modal {
         padding: 0.7rem !important;
         width: 90vw !important;
     }
+
     .blazored-modal-title {
         font-size: 0.8rem !important;
     }
+
     .blazored-modal-close {
         padding: 1rem !important;
     }
+
     .day {
         height: 60px !important;
     }
@@ -189,7 +208,7 @@ app {
     }
 
     .homeTiles {
-        max-width: 100vw;
+        max-width: 95vw;
     }
 
     .displaynavigation {
@@ -202,21 +221,33 @@ app {
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+
+    .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 60px !important;
+    }
     app {
         flex-direction: row;
     }
+
     .txt-resp {
         font-size: 0.9rem;
     }
+
     .blazored-modal {
         padding: 1rem !important;
     }
+
     .blazored-modal-close {
         padding: 0.3rem;
     }
+
     .day {
         height: 80px !important;
     }
+
     .tile {
         width: 11.84rem;
     }
@@ -235,12 +266,21 @@ app {
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
+
+    .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 60px !important;
+    }
     .blazored-modal-close {
         padding: 0.5rem;
     }
+
     .blazored-modal {
         width: 90vw !important;
     }
+
     .day {
         height: 100px !important;
     }
@@ -252,6 +292,7 @@ app {
     .displaynavigation {
         visibility: unset;
     }
+
     .accordion .contentBx {
         width: 95vw;
     }
@@ -272,4 +313,5 @@ app {
     }
 }
 
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}

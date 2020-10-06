@@ -25,7 +25,7 @@
       "url": ".nojekyll"
     },
     {
-      "hash": "sha256-ESGALJCrkmCic0drtT2woJd+jmQrnmtMHRwFM\/jphtM=",
+      "hash": "sha256-vKQ5asPTQIcVVTVak3nhMvGl9z8aJ9beAAy1R2H\/AS4=",
       "url": "css\/app.css"
     },
     {
@@ -37,11 +37,11 @@
       "url": "css\/bootstrap.min.css.map"
     },
     {
-      "hash": "sha256-6YcU\/71fdRXassjysggQKK7wpGwyZlJFzp\/5E9UX93c=",
+      "hash": "sha256-bbEcTzOBHlDmirFea5+Yt4eGRpSFV1VQG0GrifFbAok=",
       "url": "css\/Calender.css"
     },
     {
-      "hash": "sha256-uB109djmNSRHRoy8XjIrdYQB3YELMEFtVOdSXeBPFsY=",
+      "hash": "sha256-4ka+tPd7xI+9I\/cmHkW8PNGgG79V2QPvrGJlo1yfwME=",
       "url": "css\/GroceryListStyles.css"
     },
     {
@@ -157,7 +157,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-hC793aZDIhsUiUWoSkBcxJrOxyGtBURqnb4x9N1eH8o=",
+      "hash": "sha256-9G2wOA4oUG4jqh4LbTTPevGhojQXd2ZQGGJgvJcJakY=",
       "url": "_framework\/_bin\/UNMealPlanner.dll"
     },
     {
@@ -385,9 +385,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-wF4JuFe0TdHGQT1k2XQNbSzgdrN1mhkPnPoIi+VDdHo=",
+      "hash": "sha256-NAKd3I3bP87g6DxmArXTQVoSb0kRaWf2o3TxKwRpNiU=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "hWThsxrW"
+  "version": "KeQqNTbV"
 };
