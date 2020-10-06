@@ -234,12 +234,13 @@
 }
     .mobileMealsDiv:hover {
         border-radius: 3rem .25rem;
-        -ms-transform: skew(0.5deg, 0.5deg); /* IE 9 */
-        transform: skew(0.5deg, 0.5deg); /* Standard syntax */
-    }
+        /*-ms-transform: skew(0.5deg, 0.5deg);*/ /* IE 9 */
+        /*transform: skew(0.5deg, 0.5deg);*/ /* Standard syntax */
+        background: rgb(236,236,236);
+        background: linear-gradient(0deg, rgba(236,236,236,1) 0%, rgba(245,245,245,1) 100%);
     }
 
-    .calendar-header-mobile {
+.calendar-header-mobile {
         text-align: center;
         padding: 10px 0;
         background: -webkit-gradient(linear, left top, left bottom, from(#fafbfd), to(rgba(255, 255, 255, 0)));

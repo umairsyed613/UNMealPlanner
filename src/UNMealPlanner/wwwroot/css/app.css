@@ -7,8 +7,8 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
+body {
+    min-height: 100vh;
 }
 
 app {
@@ -161,17 +161,8 @@ app {
     visibility: hidden;
 }
 
-.DisplayCalendarMobile {
-    visibility: hidden;
-    display: none;
-}
-
-.DisplayCalendarMonth {
-    visibility: unset;
-}
-
 @media (max-width: 575.98px) {
-    .txt-resp {
+        .txt-resp {
         font-size: 3vw;
     }
     .blazored-modal {
@@ -205,14 +196,8 @@ app {
         visibility: unset;
     }
 
-    .DisplayCalendarMobile {
-        visibility: unset;
-        display: block;
-    }
-
-    .DisplayCalendarMonth {
-        visibility: hidden;
-        display: none;
+    .accordion .contentBx {
+        width: 95vw;
     }
 }
 
@@ -244,14 +229,8 @@ app {
         visibility: unset;
     }
 
-    .DisplayCalendarMobile {
-        visibility: unset;
-        display: block;
-    }
-
-    .DisplayCalendarMonth {
-        visibility: hidden;
-        display: none;
+    .accordion .contentBx {
+        width: 95vw;
     }
 }
 
@@ -272,6 +251,9 @@ app {
 
     .displaynavigation {
         visibility: unset;
+    }
+    .accordion .contentBx {
+        width: 95vw;
     }
 }
 

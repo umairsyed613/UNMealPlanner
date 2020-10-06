@@ -1,0 +1,201 @@
+﻿
+.groceryAccordBg {
+    background-color: #eaeaea;
+    max-width: 1051px;
+    margin: auto;
+}
+
+.accordion {
+}
+
+.accordion .contentBx {
+    position: relative;
+    border-radius: 0rem 1rem;
+    width: 80vw;
+    background-color: #ffffff;
+    transition: 0.2s ease-in-out;
+}
+    .accordion .contentBx:hover {
+        border-radius: 1rem 0rem;
+        /*background-color: #b31132;*/
+        background: rgb(236,236,236);
+        background: linear-gradient(0deg, rgba(236,236,236,1) 0%, rgba(245,245,245,1) 100%);
+    }
+
+.accordion .contentBx .heading {
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+}
+
+.accordion .contentBx .heading::before {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+}
+
+.accordion .contentBx .content {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    overflow-y: auto;
+}
+
+.accordion .contentBx.active .content {
+    height: auto;
+}
+
+.accordion .contentBx.active .heading::before {
+    content: '-';
+    font-size: 3rem;
+}
+
+.content ol {
+    counter-reset: li;
+    list-style: none;
+    padding: 0;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+.content li {
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em .8em;
+    *padding: .4em;
+    margin: .5em 0 .5em 2.5em;
+    background: #f9f9f9;
+    color: #222;
+    text-decoration: none;
+    transition: all .3s ease-out;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.15);
+    -moz-box-shadow: 0 1px 0 rgba(0,0,0,.15);
+    box-shadow: 0 1px 0 rgba(0,0,0,.15);
+    cursor: pointer;
+}
+
+    .content li:hover {
+        background: #343a40;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .content li:before {
+        content: counter(li);
+        counter-increment: li;
+        position: absolute;
+        left: -2.5em;
+        top: 50%;
+        margin-top: -1em;
+        background: #b31132;
+        height: 2em;
+        width: 2em;
+        line-height: 2em;
+        text-align: center;
+        font-weight: bold;
+        color: #f9f9f9;
+    }
+
+    .content li:after {
+        position: absolute;
+        content: '';
+        border: .5em solid transparent;
+        left: -1em;
+        top: 50%;
+        margin-top: -.5em;
+        transition: all .3s ease-out;
+    }
+
+    .content li:hover:after {
+        left: -.5em;
+        border-left-color: #b31132;
+    }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+
+
+@media (max-width: 575.98px) {
+
+    .accordion .contentBx {
+        width: 95vw;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    .accordion .contentBx {
+        width: 95vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    .accordion .contentBx {
+        width: 95vw;
+    }
+}
