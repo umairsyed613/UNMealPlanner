@@ -8,13 +8,14 @@
 .accordion {
 }
 
-.accordion .contentBx {
-    position: relative;
-    border-radius: 0rem 1rem;
-    width: 80vw;
-    background-color: #ffffff;
-    transition: 0.2s ease-in-out;
-}
+    .accordion .contentBx {
+        position: relative;
+        border-radius: 0rem 1rem;
+        width: 80vw;
+        background-color: #ffffff;
+        transition: 0.2s ease-in-out;
+        margin: auto;
+    }
     .accordion .contentBx:hover {
         border-radius: 1rem 0rem;
         /*background-color: #b31132;*/
