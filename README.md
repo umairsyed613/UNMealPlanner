@@ -13,7 +13,9 @@ This project is using Azure Pipelines / GitHub Actions to automatically deploy a
 ## ScreenShot
 ![Sample](https://github.com/umairsyed613/UNMealPlanner/blob/master/screenshot.JPG)
 
-#### Special Thanks for making work easy :)
+![Sample](https://github.com/umairsyed613/UNMealPlanner/blob/master/screenshot_mobile.png)
+
+#### Credits
 
 [Blazored Modal](https://github.com/Blazored/Modal)
 
