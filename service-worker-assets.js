@@ -25,7 +25,7 @@
       "url": ".nojekyll"
     },
     {
-      "hash": "sha256-F4rIv7eWXfUU+IACIOpejr707CLFfy0mF971M2ADafI=",
+      "hash": "sha256-ESGALJCrkmCic0drtT2woJd+jmQrnmtMHRwFM\/jphtM=",
       "url": "css\/app.css"
     },
     {
@@ -37,8 +37,12 @@
       "url": "css\/bootstrap.min.css.map"
     },
     {
-      "hash": "sha256-7vtqxlJNN03zYdWkh\/ajVm8S9t7jE4eB0XYvA9EwtTY=",
+      "hash": "sha256-6YcU\/71fdRXassjysggQKK7wpGwyZlJFzp\/5E9UX93c=",
       "url": "css\/Calender.css"
+    },
+    {
+      "hash": "sha256-ChjmrnTmJe1L3EEk26g7d+tSwWoCNdwiEyMyjZQQ6Nw=",
+      "url": "css\/GroceryListStyles.css"
     },
     {
       "hash": "sha256-9c1OodosEqLWK4E9GFPymOwtZY8b8eDdgGtuJbxkqTM=",
@@ -125,7 +129,7 @@
       "url": "images\/todo_tile.png"
     },
     {
-      "hash": "sha256-Df4efmtgzx9esutk618Y977uZ2h9+B82QVz3mgp85No=",
+      "hash": "sha256-u2fGSIbP56\/RwGrdfDyv2jB9WKxZ0JpJnAXjv2i4720=",
       "url": "index.html"
     },
     {
@@ -145,7 +149,7 @@
       "url": "js\/popper.min.js"
     },
     {
-      "hash": "sha256-8pIAeRR4+PIDwSzjxLuYTRJmJQzfM2uvjhvmZVJ8vqQ=",
+      "hash": "sha256-sCfhwNALfuYxHDpCWeCGiDS004cZOxYNfT2G90Vy\/+k=",
       "url": "js\/script.js"
     },
     {
@@ -153,7 +157,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-7D+HMRM8ArIVmijS4TJWldxr2nAyLVV0kso6IiHe8Bc=",
+      "hash": "sha256-hC793aZDIhsUiUWoSkBcxJrOxyGtBURqnb4x9N1eH8o=",
       "url": "_framework\/_bin\/UNMealPlanner.dll"
     },
     {
@@ -381,9 +385,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-AAyAW+foUoPLSfpehRqAbcLkphzKm3hP+gdcxe332qI=",
+      "hash": "sha256-wF4JuFe0TdHGQT1k2XQNbSzgdrN1mhkPnPoIi+VDdHo=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "jbzvBuRa"
+  "version": "nAOVZY9O"
 };
