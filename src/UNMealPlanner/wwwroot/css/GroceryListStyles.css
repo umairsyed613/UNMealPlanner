@@ -1,6 +1,5 @@
 ﻿
 .groceryAccordBg {
-    background-color: #eaeaea;
     max-width: 1051px;
     margin: auto;
 }
@@ -11,17 +10,69 @@
     .accordion .contentBx {
         position: relative;
         border-radius: 0rem 1rem;
-        width: 80vw;
-        background-color: #ffffff;
+        width: 95%;
+        background-color: rgb(245,245,245);
         transition: 0.2s ease-in-out;
         margin: auto;
+        -webkit-animation: fadeIn 0.5s linear;
+        animation: fadeIn 0.5s linear;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
     }
-    .accordion .contentBx:hover {
-        border-radius: 1rem 0rem;
-        /*background-color: #b31132;*/
-        background: rgb(236,236,236);
-        background: linear-gradient(0deg, rgba(236,236,236,1) 0%, rgba(245,245,245,1) 100%);
+
+        .accordion .contentBx:hover {
+            border-radius: 1rem 0rem;
+            background-color: #ffffff;
+/*            background: rgb(236,236,236);
+            background: linear-gradient(0deg, rgba(236,236,236,1) 0%, rgba(245,245,245,1) 100%);*/
+        }
+
+
+        .accordion .contentBx:nth-child(1) {
+            -webkit-animation-delay: 0.25s;
+            animation-delay: 0.25s;
+        }
+
+        .accordion .contentBx:nth-child(2) {
+            -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+        }
+
+        .accordion .contentBx:nth-child(3) {
+            -webkit-animation-delay: 0.75s;
+            animation-delay: 0.75s;
+        }
+
+        .accordion .contentBx:nth-child(4) {
+            -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+        }
+
+        .accordion .contentBx:nth-child(5) {
+            -webkit-animation-delay: 1.25s;
+            animation-delay: 1.25s;
+        }
+
+        .accordion .contentBx:nth-child(6) {
+            -webkit-animation-delay: 1.5s;
+            animation-delay: 1.5s;
+        }
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        top: 100px;
     }
+
+    75% {
+        opacity: 0.5;
+        top: 0px;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
 
 .accordion .contentBx .heading {
     position: relative;
@@ -32,14 +83,14 @@
     font-weight: 600;
 }
 
-.accordion .contentBx .heading::before {
-    content: '+';
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    font-size: 1.5em;
-}
+    .accordion .contentBx .heading::before {
+        content: '+';
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        font-size: 1.5em;
+    }
 
 .accordion .contentBx .content {
     position: relative;

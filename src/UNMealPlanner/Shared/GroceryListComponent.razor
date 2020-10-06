@@ -1,10 +1,10 @@
 @inject IGroceryListService GroceryListService
 
-<EditForm EditContext="@editContext" OnValidSubmit="RegisterGroceryList">
+<EditForm EditContext="@editContext" OnValidSubmit="RegisterGroceryList" class="mb-4">
     <div class="form-group">
         <InputText @bind-Value="GroceryList.Name" class="form-control" id="GroceryListName" aria-describedby="GroceryListName" placeholder="Enter List Name" />
     </div>
-    
+
     <div class="form-group">
         <InputText @bind-Value="GroceryList.Description" class="form-control" id="GroceryListDescription" aria-describedby="GroceryListDescription" placeholder="Enter Description" />
     </div>
@@ -27,13 +27,13 @@
                         <InputText @bind-Value="@item.Name" class="form-control text-capitalize mr-1" placeholder="Item Name" />
                         <InputText @bind-Value="@item.Quantity" class="form-control text-capitalize mr-1 w-50" placeholder="Quantity" />
                         <div><small class="text-muted">Qty</small></div>
-                        
+
                     </div>
                 </li>
             }
         </ul>
     </div>
-    
+
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -41,10 +41,17 @@
 
 </EditForm>
 
+@if (successMessage != null)
+{
+<span class="ml-2 text-primary">@successMessage</span>
+}
+
 @code {
     public GroceryList GroceryList { get; set; } = new GroceryList();
 
     public EditContext editContext { get; set; }
+
+    private string successMessage = null;
 
     protected override void OnInitialized()
     {
@@ -68,6 +75,7 @@
 
             GroceryList = new GroceryList();
             editContext = new EditContext(GroceryList);
+            successMessage = "Grocery list has been added sucessfully.";
             StateHasChanged();
         }
     }
