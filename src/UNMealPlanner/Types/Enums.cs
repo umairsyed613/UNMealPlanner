@@ -10,4 +10,11 @@
         Supper,
         Dinner
     }
+
+    public enum ViewType
+    {
+        DayView,
+        WeekView,
+        MonthView
+    }
 }

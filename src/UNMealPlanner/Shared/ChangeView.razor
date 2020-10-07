@@ -1,0 +1,47 @@
+﻿@inject AppStates AppStates
+@inject ISyncLocalStorageService localStorage
+
+<EditForm EditContext="@editContext">
+    <InputSelect class="form-control cursor-pointer" @bind-Value="@myclass.ViewType">
+        @foreach (var value in Enum.GetValues(typeof(ViewType)))
+        {
+            <option>@value</option>
+        }
+    </InputSelect>
+</EditForm>
+@code {
+
+    public ViewTypeClass myclass = null;
+    private EditContext editContext { get; set; }
+
+    private static readonly string key = "View";
+
+    protected override void OnInitialized()
+    {
+        if (localStorage.ContainKey(key))
+        {
+            AppStates.ViewType = localStorage.GetItem<ViewType>(key);
+            AppStates.ViewChanged?.Invoke();
+        }
+
+        myclass = new ViewTypeClass { ViewType = AppStates.ViewType };
+        editContext = new EditContext(myclass);
+        editContext.OnFieldChanged += HandleValidSubmit;
+    }
+
+
+    private void HandleValidSubmit(object sender, FieldChangedEventArgs args)
+    {
+        AppStates.ViewType = myclass.ViewType;
+        AppStates.ViewChanged?.Invoke();
+
+        localStorage.SetItem(key, AppStates.ViewType);
+    }
+
+    public class ViewTypeClass
+    {
+        public ViewType ViewType { get; set; }
+    }
+}
+
+

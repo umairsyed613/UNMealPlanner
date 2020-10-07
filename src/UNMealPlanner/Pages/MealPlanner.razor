@@ -9,13 +9,17 @@
     <CalendarFlex ChangeView="ToggleView" />
 </div>*@
 
-@if (AppStates.IsMobileView)
+@if (AppStates.ViewType == ViewType.DayView)
 {
-    <CalendarMobile ChangeView="ToggleView" />
+    <CalendarMobile />
+}
+else if(AppStates.ViewType == ViewType.MonthView)
+{
+    <CalendarFlex />
 }
 else
 {
-    <CalendarFlex ChangeView="ToggleView" />
+    <WeekView />
 }
 
 <CustomNavigator />
@@ -23,10 +27,12 @@ else
 
 @code {
 
-    private void ToggleView()
+    protected override void OnInitialized()
     {
-        AppStates.IsMobileView = !AppStates.IsMobileView;
-        StateHasChanged();
+        AppStates.ViewChanged += () =>
+        {
+            StateHasChanged();
+        };
     }
 
 }

@@ -4,7 +4,7 @@
 
 @if (IsMobileView)
 {
-    <div class="d-flex flex-row flex-nowrap mb-4">
+    <div class="d-flex flex-row flex-nowrap mb-4 w-100 p-1">
         <div class="mobileDayDiv user-select-none shadow-sm rounded flex-column text-center bg-white p-2 @(isToday ? "mobileDayDivToday": "")">
             <div class="mobileDayNum">@Item.Day</div>
             <div class="mobileDayName">@Item.DayOfWeek.ToString().Substring(0, 3)</div>

@@ -77,5 +77,23 @@ namespace UNMealPlanner.Helpers
 
         private static CalenderViewItem BuildItem(int day, bool isDisabled, DayOfWeek dayOfWeek, int month, int year, string monthName, bool isReadOnly) =>
             new CalenderViewItem(day, isDisabled, dayOfWeek, month, year, monthName, isReadOnly);
+
+        public static int GetWeekOfMonth(DateTime date)
+        {
+            var myCI = CultureInfo.CurrentCulture;
+            var myCal = myCI.Calendar;
+
+            var myCWR = myCI.DateTimeFormat.CalendarWeekRule;
+            var myFirstDOW = myCI.DateTimeFormat.FirstDayOfWeek;
+
+            return myCal.GetWeekOfYear(date, myCWR, myFirstDOW);
+
+            //    DateTime beginningOfMonth = new DateTime(date.Year, date.Month, 1);
+
+            //    while (date.Date.AddDays(1).DayOfWeek != CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek)
+            //        date = date.AddDays(1);
+
+            //    return (int)Math.Truncate((double)date.Subtract(beginningOfMonth).TotalDays / 7f) + 1;
+        } 
     }
 }
