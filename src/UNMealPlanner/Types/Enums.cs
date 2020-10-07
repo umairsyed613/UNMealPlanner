@@ -13,8 +13,8 @@
 
     public enum ViewType
     {
-        DayView,
-        WeekView,
-        MonthView
+        Style1,
+        Style2,
+        Style3
     }
 }

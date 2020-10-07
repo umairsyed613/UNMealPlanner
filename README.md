@@ -10,23 +10,23 @@ This project is using Azure Pipelines / GitHub Actions to automatically deploy a
 
 [GithubPages](https://umairsyed613.github.io/UNMealPlanner/)
 
+## Feaures
+- Meal planner with 3 different view styles
+- GroceryList
+
 ## ScreenShot
+
 ![Sample](https://github.com/umairsyed613/UNMealPlanner/blob/master/screenshot.JPG)
 
 ![Sample](https://github.com/umairsyed613/UNMealPlanner/blob/master/screenshot_mobile.png)
 
-#### Credits
+## Credits
 
 [Blazored Modal](https://github.com/Blazored/Modal)
 
 [Blazored LocalStorage](https://github.com/Blazored/LocalStorage)
 
 [Blazored Toast](https://github.com/Blazored/Toast)
-
-
-#### Current Issues
-
-- Github Pages PWA is not working.
 
 #### Work in Progress
 
