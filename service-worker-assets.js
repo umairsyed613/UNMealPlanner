@@ -85,7 +85,7 @@
       "url": "css\/open-iconic\/README.md"
     },
     {
-      "hash": "sha256-W6eACw2I3jrNy\/VLD3jlTeLGiJaNbEJCnLN\/GOMa7V0=",
+      "hash": "sha256-zyCeJZolq636KTuTd6Z5YnvjW0Tnr4Z1XZ5MxPotpjM=",
       "url": "css\/scrolltopstyle.css"
     },
     {
@@ -149,7 +149,7 @@
       "url": "js\/popper.min.js"
     },
     {
-      "hash": "sha256-sCfhwNALfuYxHDpCWeCGiDS004cZOxYNfT2G90Vy\/+k=",
+      "hash": "sha256-eM1XiWXe4MFVA+Y+uLE7PashuABDPuYFDRciTebPjCc=",
       "url": "js\/script.js"
     },
     {
@@ -157,7 +157,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-9G2wOA4oUG4jqh4LbTTPevGhojQXd2ZQGGJgvJcJakY=",
+      "hash": "sha256-U2UBRtLiDins6uZ\/uHrDn3X0gyV+ozRHfo6\/gOv31uc=",
       "url": "_framework\/_bin\/UNMealPlanner.dll"
     },
     {
@@ -281,6 +281,10 @@
       "url": "_framework\/_bin\/Microsoft.Extensions.Logging.Abstractions.dll"
     },
     {
+      "hash": "sha256-SnlpX7tqR4Or48+LUVR7CMv3xLhjy1JBnmDfQCb2GwM=",
+      "url": "_framework\/_bin\/Blazored.Toast.dll"
+    },
+    {
       "hash": "sha256-7+FtaZd2xSysaMLC59XhYdtkNMZ15ha0lk73dxPdT5w=",
       "url": "_framework\/_bin\/Blazored.LocalStorage.dll"
     },
@@ -319,10 +323,6 @@
     {
       "hash": "sha256-LqwA2Rpm96Ualk0IhLZar87kfRCyKHzHTeTt2jYhm7M=",
       "url": "_framework\/_bin\/Microsoft.JSInterop.dll"
-    },
-    {
-      "hash": "sha256-SnlpX7tqR4Or48+LUVR7CMv3xLhjy1JBnmDfQCb2GwM=",
-      "url": "_framework\/_bin\/Blazored.Toast.dll"
     },
     {
       "hash": "sha256-v5hsrRFpgCTdRU0txjAJ2ZBWWsLEp0HGPd9rGOxEB7w=",
@@ -385,9 +385,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-NAKd3I3bP87g6DxmArXTQVoSb0kRaWf2o3TxKwRpNiU=",
+      "hash": "sha256-M5GAzTshufupXOyUFFdoZCj9pF4\/SuFzbX3GDG577rs=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "KeQqNTbV"
+  "version": "SiYjDvCS"
 };

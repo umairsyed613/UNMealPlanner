@@ -34,7 +34,7 @@ function CheckForToday() {
 
         if (!!today) {
             //console.log('found today');
-            today.scrollIntoView();
+            today.scrollIntoView({block: "start"});
             clearInterval(checkExist);
         }
     }, 100);
