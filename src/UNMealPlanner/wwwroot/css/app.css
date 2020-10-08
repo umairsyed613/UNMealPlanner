@@ -16,6 +16,7 @@ app {
 
 .container-fluid {
     padding-bottom: 60px !important;
+    padding-top: 56px !important;
 }
 
 .mycontainerHeight {
@@ -173,7 +174,7 @@ app {
     .container-fluid {
         padding-left: 0 !important;
         padding-right: 0 !important;
-        padding-top: 0 !important;
+        padding-top: 56px !important;
         padding-bottom: 60px !important;
     }
 
@@ -225,13 +226,9 @@ app {
     .container-fluid {
         padding-left: 0 !important;
         padding-right: 0 !important;
-        padding-top: 0 !important;
+        padding-top: 56px !important;
         padding-bottom: 60px !important;
     }
-    app {
-        flex-direction: row;
-    }
-
     .txt-resp {
         font-size: 0.9rem;
     }
@@ -270,7 +267,7 @@ app {
     .container-fluid {
         padding-left: 0 !important;
         padding-right: 0 !important;
-        padding-top: 0 !important;
+        padding-top: 56px !important;
         padding-bottom: 60px !important;
     }
     .blazored-modal-close {

@@ -1,9 +1,54 @@
 ﻿@page "/"
 @inject NavigationManager Manager
 
+<style>
+    .homepage {
+        max-width: 1051px;
+    }
 
-<div class="d-flex flex-row flex-wrap homeTiles mx-auto mt-2 user-select-none">
-    <div class="tile mr-2 mb-2 shadow" @onclick="@(() => Manager.NavigateTo("./mealplanner"))">
+        .quicklinks > * {
+            cursor: pointer;
+        }
+
+    .text-quicklink{
+        font-size: 0.8rem;
+
+        }
+
+</style>
+<div class="d-flex flex-column mt-2 mx-auto homepage">
+    <div class="d-flex flex-column user-select-none quicklink-container">
+        <div class="d-flex user-select-none px-4">
+            <h4>Quick Links</h4>
+        </div>
+        <div class="d-flex flex-row flex-nowrap overflow-auto justify-content-start px-4 py-4 quicklinks">
+            <div class="d-flex flex-column align-items-center p-3 mr-2 border shadow bg-white" @onclick="@(() => Manager.NavigateTo("./mealplanner"))">
+                <div class="img"> <img src="./images/mealplanner_tile.png" width="80" height="80" alt="MealPlanner"></div>
+                <div class="text-quicklink">MealPlanner</div>
+            </div>
+
+            <div class="d-flex flex-column align-items-center p-3 mr-2 border shadow bg-white" @onclick="@(() => Manager.NavigateTo("./grocerylist"))">
+                <div class="img"> <img src="./images/grocerylist_tile.png" width="80" height="80" alt="GroceryList"></div>
+                <div class="text-quicklink">Grocery List</div>
+            </div>
+
+            <div class="d-flex flex-column align-items-center p-3 mr-2 border shadow bg-white">
+                <div class="img"> <img src="./images/notes-tiles.png" width="80" height="80" alt="Notes"></div>
+                <div class="text-quicklink">Notes</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column mt-5 px-4">
+        <div class="d-flex"><h4>Health Tip</h4></div>
+        <div class="d-flex flex-row text-break">
+            Eat a combination of different foods, including fruit, vegetables, legumes, nuts and whole grains. Adults should eat at least five portions (400g) of fruit and vegetables per day. You can improve your intake of fruits and vegetables by always including veggies in your meal; eating fresh fruit and vegetables as snacks; eating a variety of fruits and vegetables; and eating them in season. By eating healthy, you will reduce your risk of malnutrition and noncommunicable diseases (NCDs) such as diabetes, heart disease, stroke and cancer.
+        </div>
+    </div>
+</div>
+
+
+@*<div class="tile mr-2 mb-2 shadow" @onclick="@(() => Manager.NavigateTo("./mealplanner"))">
         <div class="tileImg d-flex  justify-content-center">
             <img src="./images/mealplanner_tile.png" class="card-img-top mt-2" alt="MealPlanner">
         </div>
@@ -21,7 +66,7 @@
     </div>
     <div class="tile mr-2 mb-2 shadow" >
         <div class="tileImg d-flex  justify-content-center"><img src="./images/todo_tile.png" class="card-img-top mt-2" alt="MealPlanner"></div>
-        
+
         <div class="card-body">
             <h5 class="card-title">Todo List</h5>
             <h6 class="card-subtitle mb-2 text-muted">All of your Todo's</h6>
@@ -29,10 +74,9 @@
     </div>
     <div class="tile mr-2 mb-2 shadow" >
         <div class="tileImg d-flex  justify-content-center"><img src="./images/notes-tiles.png" class="card-img-top mt-2" alt="MealPlanner"></div>
-        
+
         <div class="card-body">
             <h5 class="card-title">Notes</h5>
             <h6 class="card-subtitle mb-2 text-muted">Make quick notes here</h6>
         </div>
-    </div>
-</div>
+    </div>*@
