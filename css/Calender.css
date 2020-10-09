@@ -298,6 +298,10 @@
     color: #b31132;
 }
 
+
+.mealRegisterMobBtn {
+    color: #000000;
+}
 .mealRegisterMobBtn:hover {
     color: #b31132;
 }

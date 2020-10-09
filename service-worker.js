@@ -50,4 +50,4 @@ async function onFetch(event) {
 }
 
 // changed 16:12
-/* Manifest version: zNJNW5B/ */
+/* Manifest version: Pq7djsfi */
