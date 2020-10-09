@@ -13,9 +13,6 @@
     /*    .gallery-cell-image {
         display: block;
     }*/
-    .flickity-viewport {
-        overflow: unset;
-    }
 </style>
 <div class="d-flex flex-column mt-2 mx-auto homepage">
     <div class="d-flex flex-column user-select-none">
@@ -44,21 +41,21 @@
                     <div class="text-quicklink">Notes</div>
                 </div>
             </div>*@
-        <div id="gallery" class="d-block flex-row flex-nowrap justify-content-start px-4 py-4">
+        <div id="gallery" class="d-block flex-row flex-nowrap justify-content-start px-4 py-2">
             <div class="gallery-cell">
-                <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white" @onclick="@(() => Manager.NavigateTo("./mealplanner"))">
+                <div class="d-flex flex-column align-items-center p-3 mr-2 my-4 shadow bg-white" @onclick="@(() => Manager.NavigateTo("./mealplanner"))">
                     <div class="img"> <img src="./images/mealplanner_tile.png" width="80" height="80" alt="MealPlanner"></div>
                     <div class="text-quicklink">MealPlanner</div>
                 </div>
             </div>
             <div class="gallery-cell">
-                <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white" @onclick="@(() => Manager.NavigateTo("./grocerylist"))">
+                <div class="d-flex flex-column align-items-center p-3 mr-2 my-4 shadow bg-white" @onclick="@(() => Manager.NavigateTo("./grocerylist"))">
                     <div class="img"> <img src="./images/grocerylist_tile.png" width="80" height="80" alt="GroceryList"></div>
                     <div class="text-quicklink">Grocery List</div>
                 </div>
             </div>
             <div class="gallery-cell">
-                <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white">
+                <div class="d-flex flex-column align-items-center p-3 mr-2 my-4 shadow bg-white">
                     <div class="img"> <img src="./images/notes-tiles.png" width="80" height="80" alt="Notes"></div>
                     <div class="text-quicklink">Notes</div>
                 </div>
