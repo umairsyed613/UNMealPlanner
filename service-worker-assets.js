@@ -25,7 +25,7 @@
       "url": ".nojekyll"
     },
     {
-      "hash": "sha256-AFiFdVDwOUGmZSzZivj\/sksU6zW\/f9FE19Tv4jUYLZ4=",
+      "hash": "sha256-6JCBCPMlrRiRjNOvk9pDZWejM0dOe3ZmOLHS138BDKQ=",
       "url": "css\/app.css"
     },
     {
@@ -39,6 +39,10 @@
     {
       "hash": "sha256-bbEcTzOBHlDmirFea5+Yt4eGRpSFV1VQG0GrifFbAok=",
       "url": "css\/Calender.css"
+    },
+    {
+      "hash": "sha256-IKIuKgYQ+ogofw+KAz4fjF+zq7fwoNUnEVts493jKKE=",
+      "url": "css\/flickity.min.css"
     },
     {
       "hash": "sha256-4ka+tPd7xI+9I\/cmHkW8PNGgG79V2QPvrGJlo1yfwME=",
@@ -105,6 +109,14 @@
       "url": "images\/grocerylist_tile.png"
     },
     {
+      "hash": "sha256-ug0qSL1V3lQg1Un1YM0ga99UZPB\/CoTilV1n42skTc0=",
+      "url": "images\/healthtip_img1.jpg"
+    },
+    {
+      "hash": "sha256-blfmch60qopWFTgQbxEhDMHegNWVIcuoVAnc2C3xO3U=",
+      "url": "images\/healthtip_img2.jpg"
+    },
+    {
       "hash": "sha256-Sfz92Gt3KpaYfWwNFEUF3NB1CMy\/Uw+nvQe515dEI7Q=",
       "url": "images\/icons8-back-64.png"
     },
@@ -133,7 +145,7 @@
       "url": "images\/todo_tile.png"
     },
     {
-      "hash": "sha256-u2fGSIbP56\/RwGrdfDyv2jB9WKxZ0JpJnAXjv2i4720=",
+      "hash": "sha256-f1D0ZvqEXZ6Qwsfp7\/Tfix+bDZ2mu0Nan2jyOvHzu\/I=",
       "url": "index.html"
     },
     {
@@ -145,6 +157,10 @@
       "url": "js\/bootstrap.min.js.map"
     },
     {
+      "hash": "sha256-3Maq7M1TC8sOke8B4gRkhfGtETqGWq+xenQO7k2mHjI=",
+      "url": "js\/flickity.pkgd.min.js"
+    },
+    {
       "hash": "sha256-9\/aliU8dGd2tb6OSsuzixeV4y\/faTqgFtohetphbbj0=",
       "url": "js\/jquery-3.5.1.min.js"
     },
@@ -153,7 +169,7 @@
       "url": "js\/popper.min.js"
     },
     {
-      "hash": "sha256-eM1XiWXe4MFVA+Y+uLE7PashuABDPuYFDRciTebPjCc=",
+      "hash": "sha256-xGIPvbmt0KufmitHUjYC3NTE9ToR9d9i8cb6xSG7rc4=",
       "url": "js\/script.js"
     },
     {
@@ -161,7 +177,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-BM7iifGKwimY0\/j4MVv4JJWHwClQcOJ67wtEH25DWVE=",
+      "hash": "sha256-WjD1pRZlWFUBiJiiO5RXVqGIKyIjG2cgljqILSaeLIA=",
       "url": "_framework\/_bin\/UNMealPlanner.dll"
     },
     {
@@ -389,9 +405,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-xUX8K8S+q+JnCZWqU5erFKsjcFOOIAXRIyhKHpgVVDI=",
+      "hash": "sha256-kREkMydymU5BGIMpOqKHqrBex1pVKMoKRngRkZjlGww=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "uqggH7GF"
+  "version": "EZQLChO\/"
 };
