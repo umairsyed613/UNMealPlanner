@@ -25,7 +25,7 @@
       "url": ".nojekyll"
     },
     {
-      "hash": "sha256-6JCBCPMlrRiRjNOvk9pDZWejM0dOe3ZmOLHS138BDKQ=",
+      "hash": "sha256-DTkhqNSN+GbWRqHDdauLh5W29qyvFtUCdSJKIDFDISg=",
       "url": "css\/app.css"
     },
     {
@@ -51,42 +51,6 @@
     {
       "hash": "sha256-9c1OodosEqLWK4E9GFPymOwtZY8b8eDdgGtuJbxkqTM=",
       "url": "css\/loader.css"
-    },
-    {
-      "hash": "sha256-+Q44zfEaCMmXduni5Td+IgCbk8sSUQwES2nWs+KKQz0=",
-      "url": "css\/open-iconic\/FONT-LICENSE"
-    },
-    {
-      "hash": "sha256-BJ\/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=",
-      "url": "css\/open-iconic\/font\/css\/open-iconic-bootstrap.min.css"
-    },
-    {
-      "hash": "sha256-OK3poGPgzKI2NzNgP07XMbJa3Dz6USoUh\/chSkSvQpc=",
-      "url": "css\/open-iconic\/font\/fonts\/open-iconic.eot"
-    },
-    {
-      "hash": "sha256-sDUtuZAEzWZyv\/U1xl\/9D3ehyU69JE+FvAcu5HQ+\/a0=",
-      "url": "css\/open-iconic\/font\/fonts\/open-iconic.otf"
-    },
-    {
-      "hash": "sha256-oUpLdS+SoLJFwf4bzA3iKD7TCm66oLkTpAQlVJ2s1wc=",
-      "url": "css\/open-iconic\/font\/fonts\/open-iconic.svg"
-    },
-    {
-      "hash": "sha256-p+RP8CV3vRK1YbIkNzq3rPo1jyETPnR07ULb+HVYL8w=",
-      "url": "css\/open-iconic\/font\/fonts\/open-iconic.ttf"
-    },
-    {
-      "hash": "sha256-cZPqVlRJfSNW0KaQ4+UPOXZ\/v\/QzXlejRDwUNdZIofI=",
-      "url": "css\/open-iconic\/font\/fonts\/open-iconic.woff"
-    },
-    {
-      "hash": "sha256-s\/Is6Ey6jfNAEfXUIOyHrXXX+RcA8hzchYnuOIWUMl4=",
-      "url": "css\/open-iconic\/ICON-LICENSE"
-    },
-    {
-      "hash": "sha256-9wdNXQFE78LCNHo+Hq2eXMTx+YBf2gjsufVTJc8dAV0=",
-      "url": "css\/open-iconic\/README.md"
     },
     {
       "hash": "sha256-zyCeJZolq636KTuTd6Z5YnvjW0Tnr4Z1XZ5MxPotpjM=",
@@ -145,7 +109,7 @@
       "url": "images\/todo_tile.png"
     },
     {
-      "hash": "sha256-f1D0ZvqEXZ6Qwsfp7\/Tfix+bDZ2mu0Nan2jyOvHzu\/I=",
+      "hash": "sha256-RmRvCzxt95nD+a5wVBnA4EIwcGvlIEmioPdT5a2txps=",
       "url": "index.html"
     },
     {
@@ -169,7 +133,7 @@
       "url": "js\/popper.min.js"
     },
     {
-      "hash": "sha256-xGIPvbmt0KufmitHUjYC3NTE9ToR9d9i8cb6xSG7rc4=",
+      "hash": "sha256-L3GtqkerhNM3Xmd01eolOUAlwVoxr6Kc1FKwA7ZPGKA=",
       "url": "js\/script.js"
     },
     {
@@ -177,7 +141,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-WjD1pRZlWFUBiJiiO5RXVqGIKyIjG2cgljqILSaeLIA=",
+      "hash": "sha256-FaMRMZqdxJNnqI2WRPoV19Y0hcjoaMewmcDDzd0yI1E=",
       "url": "_framework\/_bin\/UNMealPlanner.dll"
     },
     {
@@ -405,9 +369,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-kREkMydymU5BGIMpOqKHqrBex1pVKMoKRngRkZjlGww=",
+      "hash": "sha256-PSuVviyTpK8CsO8lChlE3E9006FTjlk6g5NJrBPCdeI=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "EZQLChO\/"
+  "version": "j8i5xuim"
 };
