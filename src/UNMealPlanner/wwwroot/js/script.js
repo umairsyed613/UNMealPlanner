@@ -48,9 +48,9 @@ function CheckCalDays() {
             
             //console.log('Today Day ' + n);
 
-            if (n - 1 < 0) {
-                n = 0
-            }
+            //if (n - 1 < 0) {
+            //    n = 0
+            //}
 
             $('#CalDays').flickity({
                 cellAlign: 'left',
