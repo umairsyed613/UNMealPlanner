@@ -1,52 +1,24 @@
 ﻿@page "/"
 @inject NavigationManager Manager
-
+@inject IJSRuntime JsRuntime
 <style>
-
-    @@media (min-width: 768px) {
-        ::-webkit-scrollbar {
-            width: 10px !important;
-            height: 5px !important
-        }
-        /* Track */
-        /*::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }*/
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #C5C5C5;
-        }
-    }
-
     .homepage {
         max-width: 1051px;
-    }
-
-    .quicklink-container {
-        cursor: pointer;
-        scroll-behavior: smooth;
     }
 
     .text-quicklink {
         font-size: 0.8rem;
     }
 
-    .quicklink {
-        position: relative;
-        top: 0;
-    }
-
-    .quicklinks > .quicklink:last-child::after {
-        content: "";
-        position: absolute;
-        right: -1rem;
-        width: 1px;
-        height: 1px;
+    /*    .gallery-cell-image {
+        display: block;
+    }*/
+    .flickity-viewport {
+        overflow: unset;
     }
 </style>
-
 <div class="d-flex flex-column mt-2 mx-auto homepage">
-    <div class="d-flex flex-column user-select-none quicklink-container">
+    <div class="d-flex flex-column user-select-none">
         <div class="d-flex flex-row align-items-center user-select-none px-4">
             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-link-45deg mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
@@ -54,25 +26,48 @@
             </svg>
             <h4 class="m-0">Quick Links</h4>
         </div>
-        <div class="d-flex flex-row flex-nowrap overflow-auto justify-content-start px-4 py-4 quicklinks">
-            <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white quicklink" @onclick="@(() => Manager.NavigateTo("./mealplanner"))">
-                <div class="img"> <img src="./images/mealplanner_tile.png" width="80" height="80" alt="MealPlanner"></div>
-                <div class="text-quicklink">MealPlanner</div>
-            </div>
 
-            <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white quicklink" @onclick="@(() => Manager.NavigateTo("./grocerylist"))">
-                <div class="img"> <img src="./images/grocerylist_tile.png" width="80" height="80" alt="GroceryList"></div>
-                <div class="text-quicklink">Grocery List</div>
-            </div>
+        @* Quick Links *@
+        @*<div class="d-flex flex-row flex-nowrap overflow-auto justify-content-start px-4 py-4 quicklinks">
+                <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white quicklink" @onclick="@(() => Manager.NavigateTo("./mealplanner"))">
+                    <div class="img"> <img src="./images/mealplanner_tile.png" width="80" height="80" alt="MealPlanner"></div>
+                    <div class="text-quicklink">MealPlanner</div>
+                </div>
 
-            <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white quicklink">
-                <div class="img"> <img src="./images/notes-tiles.png" width="80" height="80" alt="Notes"></div>
-                <div class="text-quicklink">Notes</div>
+                <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white quicklink" @onclick="@(() => Manager.NavigateTo("./grocerylist"))">
+                    <div class="img"> <img src="./images/grocerylist_tile.png" width="80" height="80" alt="GroceryList"></div>
+                    <div class="text-quicklink">Grocery List</div>
+                </div>
+
+                <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white quicklink">
+                    <div class="img"> <img src="./images/notes-tiles.png" width="80" height="80" alt="Notes"></div>
+                    <div class="text-quicklink">Notes</div>
+                </div>
+            </div>*@
+        <div id="gallery" class="d-block flex-row flex-nowrap justify-content-start px-4 py-4">
+            <div class="gallery-cell">
+                <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white" @onclick="@(() => Manager.NavigateTo("./mealplanner"))">
+                    <div class="img"> <img src="./images/mealplanner_tile.png" width="80" height="80" alt="MealPlanner"></div>
+                    <div class="text-quicklink">MealPlanner</div>
+                </div>
+            </div>
+            <div class="gallery-cell">
+                <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white" @onclick="@(() => Manager.NavigateTo("./grocerylist"))">
+                    <div class="img"> <img src="./images/grocerylist_tile.png" width="80" height="80" alt="GroceryList"></div>
+                    <div class="text-quicklink">Grocery List</div>
+                </div>
+            </div>
+            <div class="gallery-cell">
+                <div class="d-flex flex-column align-items-center p-3 mr-2 shadow bg-white">
+                    <div class="img"> <img src="./images/notes-tiles.png" width="80" height="80" alt="Notes"></div>
+                    <div class="text-quicklink">Notes</div>
+                </div>
             </div>
         </div>
+
     </div>
 
-    <div class="d-flex flex-column mt-5 px-4">
+    <div class="d-flex flex-column mt-3 px-4">
         <div class="d-flex flex-row align-items-center user-select-none">
             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-info-square-fill mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.93 4.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
@@ -85,8 +80,8 @@
         <div class="d-flex flex-row text-break">
             Eat a combination of different foods, including fruit, vegetables, legumes, nuts and whole grains. Adults should eat at least five portions (400g) of fruit and vegetables per day. You can improve your intake of fruits and vegetables by always including veggies in your meal; eating fresh fruit and vegetables as snacks; eating a variety of fruits and vegetables; and eating them in season. By eating healthy, you will reduce your risk of malnutrition and noncommunicable diseases (NCDs) such as diabetes, heart disease, stroke and cancer.
         </div>
-        
-        <div class="d-flex flex-row my-2">
+
+        <div class="d-flex flex-row my-4">
             <img src="./images/healthtip_img2.jpg" class="img-thumbnail img-fluid" />
         </div>
         <div class="d-flex flex-column">
@@ -98,3 +93,9 @@
     </div>
 </div>
 
+
+@code{
+
+    protected override async Task OnInitializedAsync() => await JsRuntime.InvokeVoidAsync("CheckQuickLinks");
+
+}

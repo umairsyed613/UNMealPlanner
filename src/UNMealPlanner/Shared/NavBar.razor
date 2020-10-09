@@ -1,4 +1,6 @@
-﻿<style>
+﻿@inject NavigationManager Manager
+@inject IJSRuntime JsRuntime
+<style>
     .navbar-dark .navbar-toggler {
         border: 0 !important;
     }
@@ -78,3 +80,15 @@
         </ul>
     </div>
 </nav>
+
+@code
+{
+
+    protected override async Task OnInitializedAsync()
+    {
+        Manager.LocationChanged += async (sender, args) =>
+        {
+            await JsRuntime.InvokeVoidAsync("CollapseNavBar");
+        };
+    }
+}
