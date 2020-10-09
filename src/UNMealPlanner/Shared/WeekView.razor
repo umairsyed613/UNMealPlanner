@@ -37,15 +37,6 @@
             height: 1px;
         }
 
-    .wday {
-        position: relative;
-        border-radius: 1rem !important;
-        cursor: pointer;
-        border: 1px solid #d6d6d6 !important;
-        top: 0;
-        transition: top 0.3s ease-in-out;
-    }
-
     /*    .wdayfocus:before {
         position: absolute;
         content: '▼';
@@ -56,7 +47,7 @@
         display: flex;
     }*/
 
-    .wdayfocus:after {
+        .currentSelected:after {
         position: absolute;
         content: '▲';
         top: 82px;
@@ -68,24 +59,47 @@
 
     .currentSelected {
         position: relative;
-        top: -10px;
+        border-radius: 1rem !important;
+        cursor: pointer;
+        top: -15px;
+        transition: top 0.3s ease-in-out;
         background-color: #b31132;
         border: 0.15rem solid #ffffff !important;
     }
 
-        .currentSelected > * {
+    .currentSelected > * {
             color: white !important;
         }
 
+
+    .wday {
+        position: relative;
+        border-radius: 1rem !important;
+        cursor: pointer;
+        border: 1px solid #d6d6d6 !important;
+        top: 0;
+        transition: top 0.3s ease-in-out;
+    }
+
     .wday:hover {
         position: relative;
-        top: -10px;
+        top: -15px;
         background-color: #b31132;
     }
 
         .wday:hover > * {
             color: white;
         }
+
+    .wday:hover:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 74px;
+        height: 35px;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
     .DayNr {
         font-size: 1.2rem;
@@ -101,7 +115,7 @@
 
 <div class="wview d-flex flex-column w-100 mt-3">
     <div class="d-flex flex-row mx-3">
-        <div class="d-flex flex-row flex-1">
+        <div class="d-flex flex-row flex-1 user-select-none">
             <h3>@CalendarBuilder.GetMonthName(DateTime.Now.Year, DateTime.Now.Month)</h3>
             <small>@DateTime.Now.Year</small>
         </div>
@@ -109,14 +123,14 @@
             <ChangeView />
         </div>
     </div>
-    <div class="d-flex flex-row justify-content-center p-2"><small class="text-muted">Week: @weekNumber</small></div>
+    <div class="d-flex flex-row justify-content-center p-2 user-select-none"><small class="text-muted">Week: @weekNumber</small></div>
 
     <div class="d-flex flex-row flex-nowrap wdview px-3 py-4">
 
         @foreach (var item in CalenderData)
         {
-            <div class="d-flex flex-column justify-content-center align-items-center wday shadow mr-3 p-3 @(item.IsCurrentDay ? "wdayfocus" : "")
-                 @(SelectedDay?.Day == item.Day ? "currentSelected" : "")"
+            <div class="d-flex flex-column justify-content-center align-items-center user-select-none shadow mr-3 p-3 @(item.IsCurrentDay ? "wdayfocus" : "")
+                 @(SelectedDay?.Day == item.Day ? "currentSelected" : "wday")"
                  id="@(item.IsCurrentDay ? "todayMobile" : "unknown")" @onclick="@(() => SelectDay(item))">
                 <div class="DayName">@item.DayOfWeek.ToString().Substring(0, 3)</div>
                 <div class="DayNr">@item.Day</div>

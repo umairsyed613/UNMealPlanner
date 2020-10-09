@@ -14,14 +14,15 @@
     <link href="css/GroceryListStyles.css" rel="stylesheet" integrity="" />
     <link href="_content/Blazored.Modal/blazored-modal.css" rel="stylesheet" integrity="" />
     <link href="_content/Blazored.Toast/blazored-toast.min.css" rel="stylesheet" />
+
     <link href="manifest.json" rel="manifest" integrity="" />
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" integrity="" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" integrity="" />
 </head>
 
 <body>
-<a id="toTopBtn" onclick="topFunction()" class="cd-top shadow rounded cursor-pointer"></a>
-<app>
+    <a id="toTopBtn" onclick="topFunction()" class="cd-top shadow rounded cursor-pointer"></a>
+    <app>
         <div class="loading-section">
             <h2>MealPlanner</h2>
             <div class="short-description">Please wait while the app loads.</div>
@@ -38,9 +39,12 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+
     <script src="_framework/blazor.webassembly.js" integrity=""></script>
+
     <script src="./js/jquery-3.5.1.min.js" integrity=""></script>
-<script src="./js/bootstrap.min.js" integrity=""></script>
+    <script src="./js/bootstrap.min.js" integrity=""></script>
+
     <script src="_content/Blazored.Modal/blazored.modal.js" integrity=""></script>
     <script integrity="">navigator.serviceWorker.register('service-worker.js');</script>
     <script src="./js/script.js"></script>
