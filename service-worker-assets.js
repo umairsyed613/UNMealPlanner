@@ -133,7 +133,7 @@
       "url": "js\/popper.min.js"
     },
     {
-      "hash": "sha256-L3GtqkerhNM3Xmd01eolOUAlwVoxr6Kc1FKwA7ZPGKA=",
+      "hash": "sha256-x7AilH5EfU8okuuALyShs9B0wWq40kQ6CG+Bq8q0Ys8=",
       "url": "js\/script.js"
     },
     {
@@ -373,5 +373,5 @@
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "j8i5xuim"
+  "version": "zNJNW5B\/"
 };
