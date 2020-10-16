@@ -21,9 +21,9 @@
     }
 
         .accordion .contentBx:hover {
-            border-radius: 1rem 0rem;
+            /*border-radius: 1rem 0rem;*/
             background-color: #ffffff;
-/*            background: rgb(236,236,236);
+            /*            background: rgb(236,236,236);
             background: linear-gradient(0deg, rgba(236,236,236,1) 0%, rgba(245,245,245,1) 100%);*/
         }
 
@@ -135,7 +135,7 @@
     .content li:hover {
         background: #343a40;
         color: white;
-        font-size: 1.2rem;
+        /*font-size: 1.2rem;*/
     }
 
     .content li:before {

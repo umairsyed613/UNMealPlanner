@@ -86,24 +86,10 @@
     </div>
     <div class="d-flex flex-row justify-content-center p-2 user-select-none"><small class="text-muted">Week: @weekNumber</small></div>
 
-    @*<div class="d-flex flex-row flex-nowrap wdview px-3 py-4">
-
+    <div id="CalDays" class="d-block position-relative user-select-none px-1 py-2">
         @foreach (var item in CalenderData)
         {
-            <div class="d-flex flex-column justify-content-center align-items-center user-select-none shadow mr-3 p-3 @(item.IsCurrentDay ? "wdayfocus" : "")
-                 @(SelectedDay?.Day == item.Day ? "currentSelected" : "wday")"
-                 id="@(item.IsCurrentDay ? "todayMobile" : "unknown")" @onclick="@(() => SelectDay(item))">
-                <div class="DayName">@item.DayOfWeek.ToString().Substring(0, 3)</div>
-                <div class="DayNr">@item.Day</div>
-            </div>
-        }
-
-    </div>*@
-    
-    <div id="CalDays" class="d-block position-relative user-select-none px-1 py-4">
-        @foreach (var item in CalenderData)
-        {
-            <div class="d-block d-flex flex-column justify-content-center align-items-center shadow mr-3 my-3 p-3 @(item.IsCurrentDay ? "wdayfocus" : "")
+            <div class="d-block d-flex flex-column justify-content-center align-items-center shadow mr-3 my-4 p-3 @(item.IsCurrentDay ? "wdayfocus" : "")
                  @(SelectedDay?.Day == item.Day ? "currentSelected" : "wday")"
                  id="@(item.IsCurrentDay ? "todayMobile" : "unknown")" @onclick="@(() => SelectDay(item))">
 
@@ -143,7 +129,7 @@
     {
         if (firstRender)
         {
-            await JsRuntime.InvokeVoidAsync("CheckCalDays");
+            await JsRuntime.InvokeVoidAsync("CheckCalDays", DateTime.Now.Day);
             //await JsRuntime.InvokeVoidAsync("CheckForToday");
         }
     }
