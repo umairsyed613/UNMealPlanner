@@ -233,11 +233,11 @@
     transition: 0.2s ease-in-out;
 }
     .mobileMealsDiv:hover {
-        border-radius: 3rem .25rem;
+        /*border-radius: 3rem .25rem;*/
         /*-ms-transform: skew(0.5deg, 0.5deg);*/ /* IE 9 */
         /*transform: skew(0.5deg, 0.5deg);*/ /* Standard syntax */
-        background: rgb(236,236,236);
-        background: linear-gradient(0deg, rgba(236,236,236,1) 0%, rgba(245,245,245,1) 100%);
+        /*background: rgb(236,236,236);
+        background: linear-gradient(0deg, rgba(236,236,236,1) 0%, rgba(245,245,245,1) 100%);*/
     }
 
 .mobileMealsDivNoContent {

@@ -38,14 +38,14 @@ function CheckQuickLinks() {
     }, 100);
 }
 
-function CheckCalDays() {
+function CheckCalDays(day) {
     var checkExist = setInterval(function () {
         var gallery = document.getElementById("CalDays");
         //console.log('checking gallery');
 
         if (!!gallery) {
-            var n = new Date().getDate();
-            
+            var n = day;
+
             //console.log('Today Day ' + n);
 
             //if (n - 1 < 0) {
