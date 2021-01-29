@@ -48,5 +48,3 @@ async function onFetch(event) {
 
     return cachedResponse || fetch(event.request);
 }
-
-// changed 13:12

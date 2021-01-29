@@ -9,8 +9,15 @@ namespace UNMealPlanner.Helpers
     {
         public static string GetMonthName(int year, int month)
         {
-            return new DateTime(year, month, 1)
-               .ToString("MMMM", CultureInfo.InvariantCulture);
+            try
+            {
+                return new DateTime(year, month, 1)
+                   .ToString("MMMM", CultureInfo.InvariantCulture);
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
 
         public static List<CalenderViewItem> GetDaysOfMonthForView(int year, int month)
@@ -24,9 +31,23 @@ namespace UNMealPlanner.Helpers
             var today = DateTime.Now.Day;
 
             var prevMonth = month - 1;
+            var prevYear = year;
             var nextMonth = month + 1;
+            var nextYear = year;
+            
+            if (prevMonth <= 0)
+            {
+                prevMonth = 12;
+                prevYear -= 1;
+            }
 
-            var daysInPreviousMonth = DateTime.DaysInMonth(year, prevMonth);
+            if (nextMonth > 12)
+            {
+                nextMonth = 12;
+                nextYear += 1;
+            }
+
+            var daysInPreviousMonth = DateTime.DaysInMonth(prevYear, prevMonth);
             var daysInSelectedMonth = DateTime.DaysInMonth(year, month);
 
             var temp = (int)day;
@@ -51,7 +72,7 @@ namespace UNMealPlanner.Helpers
             while (temp < 7)
             {
                 var t = j++;
-                calenderViewItems.Add(BuildItem(t, true, new DateTime(year, nextMonth, t).DayOfWeek, nextMonth, year, monthFullName, true));
+                calenderViewItems.Add(BuildItem(t, true, new DateTime(nextYear, nextMonth, t).DayOfWeek, nextMonth, nextYear, monthFullName, true));
                 temp++;
             }
 
