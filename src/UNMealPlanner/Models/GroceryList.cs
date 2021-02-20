@@ -16,6 +16,8 @@ public class GroceryList
 
     public bool IsCompleted { get; set; }
 
+    public decimal MoneySpent { get; set; } = 0m;
+
     public GroceryList()
     {
         Items = new List<GroceryItem>();

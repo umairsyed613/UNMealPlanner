@@ -1,4 +1,6 @@
 ﻿@page "/addgroceryitem"
+@page "/addgroceryitem/{Key}"
+
 
 @inject IGroceryListService GroceryListService
 @inject NavigationManager NavigationManager
@@ -8,62 +10,70 @@
         padding: .50rem 0.25rem !important;
     }
 </style>
-
+<div class="w-100 animate__animated animate__fadeInRight">
 <div class="d-flex flex-row flex-nowrap w-100 pt-3 px-3 border-bottom">
-    <h5>Add New Grocery List</h5>
+    <h5>@titleText</h5>
 </div>
 <div class="d-flex flex-column flex-nowrap w-100 p-3">
-<EditForm EditContext="@editContext" OnValidSubmit="RegisterGroceryList" class="mb-4 w-100">
-    <div class="form-group">
-        <InputText @bind-Value="GroceryList.Name" class="form-control" id="GroceryListName" aria-describedby="GroceryListName" placeholder="Enter List Name" />
-    </div>
-
-    <div class="form-group">
-        <InputText @bind-Value="GroceryList.Description" class="form-control" id="GroceryListDescription" aria-describedby="GroceryListDescription" placeholder="Enter Description" />
-    </div>
-
-    <div class="form-group">
-        <div class="d-flex justify-content-between align-items-center">
-            <label for="GroceryListItems" class="m-0">Grocery List Items</label>
-            <span class="btn" @onclick="AddGroceryItemToList">
-                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                </svg>
-            </span>
+    <EditForm EditContext="@editContext" OnValidSubmit="RegisterGroceryList" class="mb-4 w-100">
+        <div class="form-group">
+            <InputText @bind-Value="GroceryList.Name" class="form-control" id="GroceryListName" aria-describedby="GroceryListName" placeholder="Enter List Name" />
         </div>
+
+        <div class="form-group">
+            <InputText @bind-Value="GroceryList.Description" class="form-control" id="GroceryListDescription" aria-describedby="GroceryListDescription" placeholder="Enter Description" />
+        </div>
+
+        <div class="form-group">
+            <div class="d-flex justify-content-between align-items-center">
+                <label for="GroceryListItems" class="m-0">Grocery List Items</label>
+                <span class="btn" @onclick="AddGroceryItemToList">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                    </svg>
+                </span>
+            </div>
         
-        <div class="d-flex flex-nowrap flex-row rounded bg-white p-2">
-            <ul class="list-group list-group-flush" id="GroceryListItems">
-                @foreach (var item in @GroceryList.Items.OrderByDescending(o => o.CreatedAt))
-                {
-                    <li class="list-group-item">
-                        <div class="d-flex w-100 justify-content-between align-items-center">
-                            <InputText @bind-Value="@item.Name" class="form-control text-capitalize mr-1" placeholder="Item Name" />
-                            <InputText @bind-Value="@item.Quantity" class="form-control text-capitalize mr-1 w-50" placeholder="Quantity" />
-                            <div><small class="text-muted">Qty</small></div>
+            <div class="d-flex flex-nowrap flex-row rounded bg-white p-2">
+                <ul class="list-group list-group-flush" id="GroceryListItems">
+                    @foreach (var item in @GroceryList.Items.OrderByDescending(o => o.CreatedAt))
+                    {
+                        <li class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between align-items-center">
+                                <InputText @bind-Value="@item.Name" class="form-control text-capitalize mr-1" placeholder="Item Name" />
+                                <InputText @bind-Value="@item.Quantity" class="form-control text-capitalize mr-1 w-50" placeholder="Quantity" />
+                                <div><small class="text-muted">Qty</small></div>
 
-                        </div>
-                    </li>
-                }
-            </ul>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <DataAnnotationsValidator />
-    <ValidationSummary />
+        <DataAnnotationsValidator />
+        <ValidationSummary />
 
-    <button type="submit" class="btn btn-primary"><span class="oi oi-task mr-1"></span>Register</button>
+        <button type="submit" class="btn btn-primary"><span class="oi oi-task mr-1"></span>@(isUpdate == true ? "Update" : "Register")</button>
 
-</EditForm>
+    </EditForm>
 
-@if (successMessage != null)
-{
-    <span class="ml-2 text-primary">@successMessage</span>
-    <button class="btn btn-outline-info mt-2" @onclick="@(() => NavigationManager.NavigateTo("/grocerylist"))">Go Back</button>
-}
+    @if (successMessage != null)
+    {
+        <span class="ml-2 text-primary">@successMessage</span>
+        <button class="btn btn-outline-info mt-2" @onclick="@(() => NavigationManager.NavigateTo("/grocerylist"))">Go Back</button>
+    }
+</div>
 </div>
 
 @code {
+    [Parameter]
+    public string Key { get; set; }
+
+    private string titleText { get; set; } = "Add New Grocery List";
+
+    private bool isUpdate = false;
+
     private GroceryList GroceryList { get; set; } = new GroceryList();
 
     private EditContext editContext { get; set; }
@@ -74,6 +84,21 @@
     {
         base.OnInitialized();
         editContext = new EditContext(GroceryList);
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+
+        if (!string.IsNullOrEmpty(Key))
+        {
+            GroceryList = await GroceryListService.GetGroceryListById(Key);
+            editContext = new EditContext(GroceryList);
+            titleText = "Update Grocery List";
+            isUpdate = true;
+            StateHasChanged();
+        }
+
     }
 
     private async Task RegisterGroceryList()
@@ -87,12 +112,21 @@
                 return;
             }
 
-            GroceryList.CreatedAt = DateTime.Now;
-            await GroceryListService.UpsertGroceryList(GroceryList);
+            if (isUpdate)
+            {
+                await GroceryListService.UpsertGroceryList(GroceryList);
+                NavigationManager.NavigateTo("/grocerylist");
+            }
+            else
+            {
+                GroceryList.CreatedAt = DateTime.Now;
+                await GroceryListService.UpsertGroceryList(GroceryList);
 
-            GroceryList = new GroceryList();
-            editContext = new EditContext(GroceryList);
-            successMessage = "Grocery list has been added sucessfully.";
+                GroceryList = new GroceryList();
+                editContext = new EditContext(GroceryList);
+                successMessage = "Grocery list has been added sucessfully.";
+            }
+
             StateHasChanged();
         }
     }

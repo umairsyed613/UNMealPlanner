@@ -58,17 +58,47 @@
                                 </li>
                             }
                         </ol>
-                        <div class="d-flex flex-row my-2 flex-row-reverse">
-                        <button class="btn btn-outline-danger" @onclick="@(() => DeleteItem(data.Key))">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                            </svg>
-                        </button>
+                        <div class="d-flex flex-row my-2">
+                            <div class="flex-1 pr-4">
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" aria-label="Amount spent" placeholder="Amount Spent" @bind="data.MoneySpent">
+                                    <span class="input-group-text cursor-pointer" @onclick="@(() => UpdateMoneySpent(data))">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                                        </svg>
+                                    </span>
+                                </div>
+                               @* <div class="form-group">
+                                    <input type="number" class="form-control" @ bind="moneySpent"/>
+                                    <button class="btn btn-outline-info ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
+                                            <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                                            <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
+                                        </svg>
+                                    </button>
+                                </div>*@
+
+                            </div>
+                            <div class="ml-2">
+                                <button class="btn btn-outline-info mr-2" @onclick="@(() => EditGroceryItem(data.Key))">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                    </svg>
+                                </button>
+
+                                <button class="btn btn-outline-danger" @onclick="@(() => DeleteItem(data.Key))">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
 
                     </div>
                     <div class="d-flex flex-row flex-wrap justify-content-between">
-                        <small class="user-select-none ml-2 text-muted">Total Items : @data.Items.Count Completed Items: @data.Items.Where(w => w.IsCompleted).Count()</small>
+                        <small class="user-select-none ml-2 text-muted">Total : @data.Items.Count Completed : @data.Items.Where(w => w.IsCompleted).Count()</small>
                         <small class="user-select-none ml-2 text-muted">Created @data.GetTodayDays() days ago</small>
                     </div>
                 </div>
@@ -148,6 +178,20 @@
     private async Task DeleteItem(string key)
     {
         await GroceryListService.RemoveGroceryList(key);
+        await LoadList();
+    }
+    
+    private void EditGroceryItem(string key)
+    {
+        NavigationManager.NavigateTo($"/addgroceryitem/{key}");
+    }
+
+    private async Task UpdateMoneySpent(GroceryList data)
+    {
+        Console.WriteLine("Updating Money Spent: " + data.MoneySpent);
+
+        await GroceryListService.UpsertGroceryList(data);
+
         await LoadList();
     }
 }
