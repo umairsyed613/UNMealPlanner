@@ -245,7 +245,7 @@
       "url": "_framework\/System.IO.Pipelines.dll"
     },
     {
-      "hash": "sha256-21yQEy4WOvFtqS+ip89j24Tl+uWUE2FWCB0C\/TYmX2o=",
+      "hash": "sha256-j1z06VGSOAdAOy81EjkmJt7dhyT2vj2nf1H7BU9JEsk=",
       "url": "_framework\/UNMealPlanner.dll"
     },
     {
@@ -345,7 +345,7 @@
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
-      "hash": "sha256-B07K1afG8wD6C\/BERAUx3NFAwNWu7lUBGgnJce7eOKY=",
+      "hash": "sha256-gwknzkvdlSd\/8mWuMsXHzSik5RnTyfP\/KYt0VLvrAvU=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -353,5 +353,5 @@
       "url": "_framework\/blazor.webassembly.js"
     }
   ],
-  "version": "igrcJoG7"
+  "version": "hCuWwnE5"
 };
