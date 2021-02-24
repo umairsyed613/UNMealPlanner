@@ -17,6 +17,8 @@ public class GroceryList
     public bool IsCompleted { get; set; }
 
     public decimal MoneySpent { get; set; } = 0m;
+    
+    public List<string> Receipts { get; set; }
 
     public GroceryList()
     {

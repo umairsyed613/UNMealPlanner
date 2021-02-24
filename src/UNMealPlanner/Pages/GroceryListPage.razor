@@ -2,7 +2,17 @@
 @inject IModalService Modal
 @inject IGroceryListService GroceryListService
 @inject NavigationManager NavigationManager
-
+<style>
+    .card-header {
+        background-color: transparent !important;
+    }
+    .groceryMoneyInput {
+        max-width: 100px;
+    }
+    .input-group-text {
+        border-radius: 0 !important;
+    }
+</style>
 <div class="d-flex flex-column w-100 groceryAccordBg">
     <div class="card-header d-flex flex-row align-items-center mb-3">
         <div class="mr-auto pt-1">
@@ -20,18 +30,9 @@
         {
             foreach (var data in GroceryListsData)
             {
-                @*<a href="./viewgrocery/@item.Key" class="list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1 user-select-none">@item.Name</h5>
-                            <small class="user-select-none">@item.GetTodayDays() days ago</small>
-                        </div>
-                        <p class="mb-1">@item.Description</p>
-                        <small>Total Items : @item.Items.Count</small> <small class="ml-2">Completed Items: @item.Items.Where(w => w.IsCompleted).Count()</small>
-                    </a>*@
-
                 <div class="contentBx mb-2 p-3 shadow-sm @(Expanded.Contains(data.Key) ? "active" : "")">
                     <div class="heading text-capitalize user-select-none" @onclick="@(() => ExpandContent(data.Key))">@data.Name</div>
-                    <div class="content">
+                    <div class="content @(Expanded.Contains(data.Key) ? "border-top" : "")">
                         <ol>
                             @foreach (var item in data.Items)
                             {
@@ -62,23 +63,14 @@
                             <div class="flex-1 pr-4">
                                 <div class="input-group">
                                     <span class="input-group-text">$</span>
-                                    <input type="text" class="form-control" aria-label="Amount spent" placeholder="Amount Spent" @bind="data.MoneySpent">
+                                    <input type="text" class="form-control groceryMoneyInput" aria-label="Amount spent" placeholder="Amount Spent" @bind="data.MoneySpent">
                                     <span class="input-group-text cursor-pointer" @onclick="@(() => UpdateMoneySpent(data))">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
-                                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                         </svg>
                                     </span>
                                 </div>
-                               @* <div class="form-group">
-                                    <input type="number" class="form-control" @ bind="moneySpent"/>
-                                    <button class="btn btn-outline-info ml-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
-                                            <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
-                                            <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
-                                        </svg>
-                                    </button>
-                                </div>*@
-
                             </div>
                             <div class="ml-2">
                                 <button class="btn btn-outline-info mr-2" @onclick="@(() => EditGroceryItem(data.Key))">
@@ -95,7 +87,6 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
                     <div class="d-flex flex-row flex-wrap justify-content-between">
                         <small class="user-select-none ml-2 text-muted">Total : @data.Items.Count Completed : @data.Items.Where(w => w.IsCompleted).Count()</small>
