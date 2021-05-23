@@ -1,7 +1,10 @@
 @page "/grocerylist"
+@using System.Text.Json
 @inject IModalService Modal
 @inject IGroceryListService GroceryListService
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JsRuntime
+
 <style>
     .card-header {
         background-color: transparent !important;
@@ -20,7 +23,7 @@
         </div>
         <button class="btn btn-outline-primary" @onclick="AddGroceryList">
             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
             </svg>
         </button>
     </div>
@@ -44,11 +47,12 @@
                                                 <s>@item.Name</s>
                                             }
                                             else
-                                            {
-                                                @item.Name
-                                            }
+                                            { @item.Name }
                                         </div>
-                                        <div class="mr-2">@item.Quantity <small class="text-muted">/ Qty</small></div>
+                                        <div class="mr-2">
+                                            @item.Quantity
+                                            <small class="text-muted">/ Qty</small>
+                                        </div>
                                         <div class="pt-2">
                                             <label class="switch">
                                                 <input type="checkbox" checked=@item.IsCompleted @onclick="@(() => MarkItemCompleted(data, item.Key))">
@@ -59,7 +63,7 @@
                                 </li>
                             }
                         </ol>
-                        <div class="d-flex flex-row my-2">
+                        <div class="d-flex flex-row my-2 px-1">
                             <div class="flex-1 pr-4">
                                 <div class="input-group">
                                     <span class="input-group-text">$</span>
@@ -80,10 +84,16 @@
                                     </svg>
                                 </button>
 
-                                <button class="btn btn-outline-danger" @onclick="@(() => DeleteItem(data.Key))">
+                                <button class="btn btn-outline-danger mr-2" @onclick="@(() => DeleteItem(data.Key))">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                     </svg>
+                                </button>
+
+                                <button class="btn btn-outline-info" @onclick="@(() => ShareGroceryList(data.Key))">
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+                                     <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+                                   </svg>
                                 </button>
                             </div>
                         </div>
@@ -123,15 +133,9 @@
     {
         await Task.Run(() =>
         {
-            if (Expanded.Contains(key))
-            {
-                Expanded.Remove(key);
-            }
+            if (Expanded.Contains(key)) { Expanded.Remove(key); }
             else
-            {
-                Expanded.Add(key);
-            }
-
+            { Expanded.Add(key); }
         });
 
         StateHasChanged();
@@ -145,10 +149,7 @@
     private async Task LoadList()
     {
         GroceryListsData = await GroceryListService.GetALlGroceriesList();
-        if (GroceryListsData != null)
-        {
-            GroceryListsData = GroceryListsData.OrderByDescending(o => o.CreatedAt).ToList();
-        }
+        if (GroceryListsData != null) { GroceryListsData = GroceryListsData.OrderByDescending(o => o.CreatedAt).ToList(); }
         StateHasChanged();
     }
 
@@ -156,10 +157,7 @@
     {
         var item = data.Items.FirstOrDefault(f => f.Key == key);
 
-        if (item != null)
-        {
-            item.IsCompleted = !item.IsCompleted;
-        }
+        if (item != null) { item.IsCompleted = !item.IsCompleted; }
 
         await GroceryListService.UpsertGroceryList(data);
 
@@ -171,7 +169,13 @@
         await GroceryListService.RemoveGroceryList(key);
         await LoadList();
     }
-    
+
+    private async Task ShareGroceryList(string key)
+    {
+        var dd = await GroceryListService.GetGroceryListById(key);
+        await JsRuntime.InvokeVoidAsync("ShareData", dd.Name, EncodingHelper.Base64Encode(JsonSerializer.Serialize(dd)));
+    }
+
     private void EditGroceryItem(string key)
     {
         NavigationManager.NavigateTo($"/addgroceryitem/{key}");
@@ -185,4 +189,5 @@
 
         await LoadList();
     }
+
 }
