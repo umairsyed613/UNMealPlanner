@@ -90,6 +90,8 @@
         right: 20px;
         transform: translateY(-50%);
         font-size: 1.5em;
+        color: grey;
+
     }
 
 .accordion .contentBx .content {

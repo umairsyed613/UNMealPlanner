@@ -100,3 +100,14 @@ function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+function ShareData(title, data) {
+    console.log(window.location.href + '/' +data);
+    navigator.share({
+        title: title,
+        text: data,
+        url: window.location.href + '/' + data
+    })
+        .then(() => console.log('Successful share'))
+        .catch(error => console.log('Error sharing:', error));
+}
